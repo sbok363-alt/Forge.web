@@ -119,7 +119,7 @@ export const SectionB_Evidence: React.FC = () => {
               </div>
               <div className="p-3 rounded-2xl bg-black/40 border border-white/[0.05]">
                 <div className="text-lg font-extrabold text-emerald-400">+6.8%</div>
-                <div className="text-[11px] text-[#8E8E93]">Strength trend velocity</div>
+                <div className="text-[11px] text-[#8E8E93]">Estimated strength gain</div>
               </div>
               <div className="p-3 rounded-2xl bg-black/40 border border-white/[0.05]">
                 <div className="text-lg font-extrabold text-[#FF7A32]">5 PRs</div>

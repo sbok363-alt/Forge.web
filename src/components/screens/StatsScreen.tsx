@@ -18,7 +18,7 @@ export const StatsScreen: React.FC<StatsScreenProps> = ({
   onNavigateTab,
 }) => {
   const [timeFilter, setTimeFilter] = useState<TimeFilter>('1M');
-  const [distributionTab, setDistributionTab] = useState<'volume' | 'frequency' | 'growth'>('volume');
+  const [distributionTab, setDistributionTab] = useState<'volume' | 'frequency' | 'sets'>('volume');
   const [hoveredBarIndex, setHoveredBarIndex] = useState<number | null>(null);
 
   const currentChartData =
@@ -182,7 +182,7 @@ export const StatsScreen: React.FC<StatsScreenProps> = ({
             Training Distribution
           </span>
           <div className="flex items-center gap-1 p-0.5 bg-black/40 rounded-lg border border-white/[0.06]">
-            {(['volume', 'frequency', 'growth'] as const).map((tab) => (
+            {(['volume', 'frequency', 'sets'] as const).map((tab) => (
               <button
                 key={tab}
                 onClick={() => setDistributionTab(tab)}

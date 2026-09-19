@@ -24,9 +24,9 @@ export const SectionC_Brain: React.FC = () => {
     {
       title: 'Volume Deload Assessment',
       query: 'Am I accumulating excessive systemic fatigue?',
-      evidence: 'Average RIR dropped from 2.2 to 0.6 over the last 4 workouts; bar velocity down 11%.',
+      evidence: 'Average RIR dropped from 2.2 to 0.6 across compound sets over the last 4 sessions as perceived exertion rose.',
       recommendation:
-        "Fatigue accumulation is approaching overreaching threshold. Proposing a 40% volume reduction on isolation movements for Week 5.",
+        "Consecutive sessions show declining RIR and elevated fatigue accumulation. Proposing a planned volume reduction on secondary movements for your next training block.",
       action: 'Apply Deload Microcycle',
     },
   ];
@@ -125,10 +125,10 @@ export const SectionC_Brain: React.FC = () => {
             <div className="p-4 rounded-2xl bg-black/60 border border-white/[0.05] mt-4">
               <div className="flex items-center gap-2 text-xs font-bold text-white mb-1">
                 <ShieldAlert className="w-4 h-4 text-[#FF7A32]" />
-                <span>Strict Guardrail Guarantee</span>
+                <span>Transparent Proposal Safeguard</span>
               </div>
               <p className="text-[11px] text-[#8E8E93] leading-relaxed">
-                Forge Brain never silently alters your recorded numbers or overwrites training logs. All changes require deliberate confirmation.
+                Forge Brain acts strictly as an advisory intelligence layer. It never silently alters your recorded numbers, overwrites workout logs, or adjusts weights without your explicit confirmation.
               </p>
             </div>
           </div>

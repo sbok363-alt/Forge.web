@@ -33,7 +33,7 @@ export const FinalCTA: React.FC<FinalCTAProps> = ({
 
         {/* Subtext */}
         <p className="max-w-xl text-sm sm:text-lg text-[#A3A3A3] mb-6 sm:mb-10 leading-relaxed font-normal px-2">
-          Turn your training into something you can measure, understand, and improve. Every set logged today is progressive overload tomorrow.
+          Turn your training into something you can measure, understand, and improve. Every set logged today establishes the baseline for progressive overload tomorrow.
         </p>
 
         {/* CTAs (Clean semantic links without duplicate window.open triggers) */}

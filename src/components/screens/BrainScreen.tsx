@@ -37,12 +37,12 @@ export const BrainScreen: React.FC<BrainScreenProps> = ({
       const lower = text.toLowerCase();
       if (lower.includes('stall') || lower.includes('bench')) {
         brainReplyText =
-          "Bench Press shows positive velocity. You completed 60 kg x 10, 9, 8 today with average RIR 1.7. Since last week's volume was 3,600 kg on chest, there is no true stall—just neuromuscular fatigue. Maintain current loads for 1 more session to solidify technique.";
-        actionChips = ['Show bench press velocity', 'Review chest volume history'];
+          "Bench Press shows steady progress. You completed 60 kg x 10, 9, 8 today with an average RIR of 1.7. Since last week's chest volume reached 3,600 kg, this reflects normal session fatigue rather than a plateau. Maintain current loads for 1 more session to solidify technique before adding weight.";
+        actionChips = ['Review bench press history', 'Review chest volume history'];
       } else if (lower.includes('review') || lower.includes('last workout')) {
         brainReplyText =
-          "Your last Push session hit 8,450 lb total volume across 5 exercises. Key highlight: Set 2 Barbell Bench reached 9 clean reps at 60 kg (+1 rep delta). Recovery index is optimal at 88%.";
-        actionChips = ['Compare with previous week', 'Log recovery notes'];
+          "Your last Push session hit 8,450 lb total volume across 5 exercises. Key highlight: Set 2 Barbell Bench reached 9 clean reps at 60 kg (+1 rep delta). Target RIR was maintained across all working sets.";
+        actionChips = ['Compare with previous week', 'Review set logs'];
       } else if (lower.includes('adjust') || lower.includes('today')) {
         brainReplyText =
           "Based on your 4-week fatigue accumulation, I recommend keeping main compound movements at RIR 2, then reducing secondary isolation volume by 1 set if perceived exertion exceeds 8/10.";

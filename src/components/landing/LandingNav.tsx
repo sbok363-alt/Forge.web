@@ -79,7 +79,10 @@ export const LandingNav: React.FC<LandingNavProps> = ({
         <ForgeLogo
           size="md"
           className="hover:opacity-90 transition-opacity cursor-pointer"
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          onClick={() => {
+            const prefersReduced = typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            window.scrollTo({ top: 0, behavior: prefersReduced ? 'auto' : 'smooth' });
+          }}
         />
 
         {/* Center desktop navigation links */}
