@@ -125,11 +125,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           </button>
         </div>
 
-        {/* Segmented Screen Remote Switcher - quiet, restrained, accessible */}
+        {/* Segmented Screen Remote Switcher - quiet, restrained, compact on mobile */}
         <div
           role="tablist"
           aria-label="Product screens"
-          className="flex items-center gap-1 p-1 bg-[#0A0A0C] border border-white/[0.08] rounded-2xl mb-4 sm:mb-6 overflow-x-auto max-w-full relative shadow-inner"
+          className="flex items-center gap-0.5 sm:gap-1 p-0.5 sm:p-1 bg-[#0A0A0C]/90 border border-white/[0.06] sm:border-white/[0.08] rounded-xl sm:rounded-2xl mb-3 sm:mb-6 overflow-x-auto max-w-full relative shadow-inner"
         >
           {screens.map((item) => {
             const isSelected = item.id === currentActiveId;
@@ -146,7 +146,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                     setCenterTab(item.id as AppTab);
                   }
                 }}
-                className={`relative px-3 sm:px-3.5 py-1.5 text-xs font-semibold rounded-xl cursor-pointer whitespace-nowrap transition-colors duration-200 z-10 ${
+                className={`relative px-2.5 sm:px-3.5 py-1 sm:py-1.5 text-[11px] sm:text-xs font-medium sm:font-semibold rounded-lg sm:rounded-xl cursor-pointer whitespace-nowrap transition-colors duration-200 z-10 ${
                   isSelected ? 'text-black font-bold' : 'text-[#8E8E93] hover:text-white'
                 }`}
               >
@@ -154,7 +154,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                   <motion.div
                     layoutId="hero-segmented-active"
                     transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                    className="absolute inset-0 bg-[#FF7A32] rounded-xl shadow-md shadow-[#FF7A32]/30 -z-10"
+                    className="absolute inset-0 bg-[#FF7A32] rounded-lg sm:rounded-xl shadow-sm sm:shadow-md shadow-[#FF7A32]/25 sm:shadow-[#FF7A32]/30 -z-10"
                   />
                 )}
                 {item.label}

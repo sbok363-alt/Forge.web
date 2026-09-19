@@ -90,7 +90,7 @@ export const SectionE_OneSystem: React.FC<SectionE_OneSystemProps> = () => {
   const current = destinations.find((d) => d.id === activeTab) || destinations[0];
 
   return (
-    <section id="section-system" className="py-20 sm:py-28 bg-[#080809] border-t border-white/[0.06] relative">
+    <section id="section-system" className="py-20 sm:py-28 bg-[#080809] border-t border-white/[0.06] relative scroll-mt-20 sm:scroll-mt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">

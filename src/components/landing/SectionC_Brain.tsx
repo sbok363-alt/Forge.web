@@ -33,47 +33,82 @@ export const SectionC_Brain: React.FC = () => {
 
   const current = scenarios[selectedScenario];
 
+  const pipelineNodes = [
+    { step: '01', title: 'FORGE DATA', desc: 'Sets, reps, loads, RIR, cadence', icon: <Database className="w-4 h-4 text-white" /> },
+    { step: '02', title: 'EVIDENCE', desc: 'Multi-week progression delta', icon: <FileText className="w-4 h-4 text-white" /> },
+    { step: '03', title: 'FORGE BRAIN', desc: 'Training trend analysis', icon: <Brain className="w-4 h-4 text-[#FF7A32]" /> },
+    { step: '04', title: 'RECOMMENDATION', desc: 'Actionable load & set proposals', icon: <Sparkles className="w-4 h-4 text-[#FF9457]" /> },
+    { step: '05', title: 'USER APPROVAL', desc: 'Athlete stays in total control', icon: <CheckCircle2 className="w-4 h-4 text-emerald-400" /> },
+  ];
+
   return (
-    <section id="section-brain" className="py-16 sm:py-24 bg-[#080809] border-t border-white/[0.06] relative overflow-hidden">
+    <section id="section-brain" className="py-12 sm:py-16 lg:py-24 bg-[#080809] border-t border-white/[0.06] relative overflow-hidden scroll-mt-20 sm:scroll-mt-24">
       {/* Restrained Forge Brain Orange Halo */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] sm:w-[700px] h-[400px] sm:h-[500px] bg-[#FF7A32]/12 blur-[100px] rounded-full pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className="max-w-3xl mb-10 sm:mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1C1714] border border-[#FF7A32]/40 mb-4">
+        <div className="max-w-3xl mb-8 sm:mb-12 lg:mb-16">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1C1714] border border-[#FF7A32]/40 mb-3 sm:mb-4">
             <Brain className="w-3.5 h-3.5 text-[#FF7A32]" />
             <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#FF7A32]">
               Training Intelligence
             </span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white uppercase tracking-tight leading-[1.08] mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white uppercase tracking-tight leading-[1.08] mb-3 sm:mb-4">
             Your training{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF7A32] via-[#FF9457] to-[#FFA875]">
               intelligence.
             </span>
           </h2>
 
-          <p className="text-base sm:text-lg text-[#A3A3A3] leading-relaxed">
+          <p className="text-sm sm:text-base lg:text-lg text-[#A3A3A3] leading-relaxed">
             Forge Brain is not a novelty chatbot. It is an analytical intelligence layer operating strictly on your verified training history, detecting progressive patterns, fatigue spikes, and load adjustments.
           </p>
         </div>
 
         {/* The 5-Stage Evidence Pipeline Graphic */}
-        <div className="mb-10 sm:mb-14 p-4 sm:p-8 rounded-3xl bg-[#0D0D10] border border-white/[0.1] shadow-2xl">
-          <div className="text-xs font-bold uppercase tracking-widest text-[#8E8E93] mb-6 text-center sm:text-left">
+        <div className="mb-8 sm:mb-14 p-4 sm:p-7 lg:p-8 rounded-2xl sm:rounded-3xl bg-[#0D0D10] border border-white/[0.08] sm:border-white/[0.1] shadow-2xl">
+          <div className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-[#8E8E93] mb-4 sm:mb-6 text-left">
             Evidence-Based Decision Architecture
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-5 gap-3 relative">
-            {[
-              { step: '01', title: 'FORGE DATA', desc: 'Sets, reps, loads, RIR, cadence', icon: <Database className="w-4 h-4 text-white" /> },
-              { step: '02', title: 'EVIDENCE', desc: 'Multi-week progression delta', icon: <FileText className="w-4 h-4 text-white" /> },
-              { step: '03', title: 'FORGE BRAIN', desc: 'Training trend analysis', icon: <Brain className="w-4 h-4 text-[#FF7A32]" /> },
-              { step: '04', title: 'RECOMMENDATION', desc: 'Actionable load & set proposals', icon: <Sparkles className="w-4 h-4 text-[#FF9457]" /> },
-              { step: '05', title: 'USER APPROVAL', desc: 'Athlete stays in total control', icon: <CheckCircle2 className="w-4 h-4 text-emerald-400" /> },
-            ].map((node, i) => (
+          {/* Mobile: Compact Connected Vertical Timeline */}
+          <div className="sm:hidden relative pl-6 space-y-3.5 before:absolute before:left-[10px] before:top-2.5 before:bottom-2.5 before:w-[2px] before:bg-white/[0.1]">
+            {pipelineNodes.map((node, i) => (
+              <div key={i} className="relative flex items-start gap-3">
+                {/* Step indicator node */}
+                <div
+                  className={`absolute -left-6 top-0.5 w-5 h-5 rounded-full flex items-center justify-center border text-[9px] font-mono font-bold shrink-0 ${
+                    i === 2
+                      ? 'bg-[#181310] border-[#FF7A32] text-[#FF7A32] shadow-sm shadow-[#FF7A32]/40'
+                      : 'bg-[#0D0D10] border-white/20 text-[#8E8E93]'
+                  }`}
+                >
+                  {node.step}
+                </div>
+
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs font-bold uppercase tracking-wider text-white">
+                      {node.title}
+                    </span>
+                    {i === 2 && (
+                      <span className="px-1.5 py-0.2 text-[9px] font-bold text-[#FF7A32] bg-[#FF7A32]/10 rounded border border-[#FF7A32]/30 uppercase tracking-wider">
+                        Core Layer
+                      </span>
+                    )}
+                  </div>
+                  <p className="text-[11px] text-[#A3A3A3] leading-tight mt-0.5">{node.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Desktop: Horizontal 5-Column Cards */}
+          <div className="hidden sm:grid sm:grid-cols-5 gap-3 relative">
+            {pipelineNodes.map((node, i) => (
               <div
                 key={i}
                 className={`p-4 rounded-2xl border flex flex-col justify-between transition-all ${
@@ -98,31 +133,31 @@ export const SectionC_Brain: React.FC = () => {
         </div>
 
         {/* Interactive Scenario Explorer */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
           {/* Scenario Selector Tabs */}
-          <div className="lg:col-span-4 space-y-2.5">
-            <div className="text-xs font-bold uppercase tracking-wider text-[#8E8E93] mb-2 px-1">
+          <div className="lg:col-span-4 space-y-2 sm:space-y-2.5">
+            <div className="text-xs font-bold uppercase tracking-wider text-[#8E8E93] mb-1 sm:mb-2 px-1">
               Test Realistic Inquiries:
             </div>
             {scenarios.map((sc, idx) => (
               <button
                 key={idx}
                 onClick={() => setSelectedScenario(idx)}
-                className={`w-full text-left p-4 rounded-2xl border transition-all cursor-pointer ${
+                className={`w-full text-left p-3 sm:p-4 rounded-xl sm:rounded-2xl border transition-all cursor-pointer ${
                   selectedScenario === idx
                     ? 'bg-[#181310] border-[#FF7A32] text-white shadow-md'
                     : 'bg-[#0E0E10] border-white/[0.06] text-[#A3A3A3] hover:border-white/20'
                 }`}
               >
-                <div className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#FF7A32] mb-1">
+                <div className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#FF7A32] mb-0.5 sm:mb-1">
                   Scenario {idx + 1}
                 </div>
-                <div className="text-xs font-bold text-white mb-1">{sc.title}</div>
+                <div className="text-xs font-bold text-white mb-0.5 sm:mb-1">{sc.title}</div>
                 <div className="text-[11px] text-[#8E8E93] line-clamp-1">&quot;{sc.query}&quot;</div>
               </button>
             ))}
 
-            <div className="p-4 rounded-2xl bg-black/60 border border-white/[0.05] mt-4">
+            <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-white/[0.02] border border-white/[0.05] mt-3 sm:mt-4">
               <div className="flex items-center gap-2 text-xs font-bold text-white mb-1">
                 <ShieldAlert className="w-4 h-4 text-[#FF7A32]" />
                 <span>Transparent Proposal Safeguard</span>
@@ -134,42 +169,42 @@ export const SectionC_Brain: React.FC = () => {
           </div>
 
           {/* Interactive Evidence Breakdown Card */}
-          <div className="lg:col-span-8 bg-[#0D0D10] border border-[#FF7A32]/40 rounded-3xl p-6 sm:p-8 shadow-2xl relative">
+          <div className="lg:col-span-8 bg-[#0D0D10] border border-white/[0.08] sm:border-[#FF7A32]/40 rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 shadow-2xl relative">
             {/* Ambient inner glow */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-[#FF7A32]/10 rounded-full blur-2xl pointer-events-none" />
 
-            <div className="relative z-10 space-y-6">
-              {/* Question Query Box */}
-              <div className="p-4 rounded-2xl bg-black/70 border border-white/[0.08] flex items-start gap-3">
-                <div className="w-7 h-7 rounded-lg bg-white/10 flex items-center justify-center text-xs font-bold shrink-0 text-white">
+            <div className="relative z-10 space-y-4 sm:space-y-6">
+              {/* Question Query */}
+              <div className="flex items-start gap-3 pb-4 border-b border-white/[0.06]">
+                <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-white/10 flex items-center justify-center text-xs font-bold shrink-0 text-white mt-0.5">
                   Q
                 </div>
                 <div>
                   <div className="text-[10px] font-mono text-[#8E8E93] uppercase tracking-wider">
                     Athlete Query
                   </div>
-                  <div className="text-sm font-bold text-white tracking-tight mt-0.5">
+                  <div className="text-xs sm:text-sm font-bold text-white tracking-tight mt-0.5">
                     &quot;{current.query}&quot;
                   </div>
                 </div>
               </div>
 
-              {/* Verified Evidence Box */}
-              <div className="p-4 rounded-2xl bg-[#121215] border border-white/[0.08]">
+              {/* Verified Evidence */}
+              <div className="pb-4 border-b border-white/[0.06]">
                 <div className="flex items-center gap-2 text-[10px] font-mono uppercase tracking-wider text-[#FF7A32] mb-1.5 font-bold">
                   <Database className="w-3.5 h-3.5" />
                   <span>Ground Truth Training Evidence Found</span>
                 </div>
-                <div className="text-xs font-mono text-white/90 bg-black/60 p-3 rounded-xl border border-white/[0.05]">
+                <div className="text-xs font-mono text-[#D4D4D8] bg-black/50 p-2.5 sm:p-3 rounded-xl border border-white/[0.05] leading-relaxed">
                   {current.evidence}
                 </div>
               </div>
 
               {/* Brain Recommendation Bubble */}
-              <div className="p-5 rounded-2xl bg-[#1C1714] border border-[#FF7A32]/50 space-y-3">
+              <div className="p-3.5 sm:p-5 rounded-xl sm:rounded-2xl bg-[#1C1714] border border-[#FF7A32]/50 space-y-2.5 sm:space-y-3">
                 <div className="flex items-center gap-2.5">
-                  <div className="w-7 h-7 rounded-xl bg-[#FF7A32] flex items-center justify-center text-black font-black text-xs">
-                    <Brain className="w-4 h-4" />
+                  <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg sm:rounded-xl bg-[#FF7A32] flex items-center justify-center text-black font-black text-xs">
+                    <Brain className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                   </div>
                   <span className="text-xs font-black uppercase tracking-wider text-white">
                     Forge Brain Recommendation
@@ -180,7 +215,7 @@ export const SectionC_Brain: React.FC = () => {
                   {current.recommendation}
                 </p>
 
-                <div className="pt-2 border-t border-white/[0.08] flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <div className="pt-2 border-t border-white/[0.08] flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 sm:gap-3">
                   <div className="text-[11px] text-[#A3A3A3]">
                     Proposed Action: <span className="text-white font-bold">{current.action}</span>
                   </div>

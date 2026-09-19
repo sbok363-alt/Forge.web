@@ -15,13 +15,23 @@ import { SignInModal } from './components/SignInModal';
 export default function App() {
   const [isSignInOpen, setIsSignInOpen] = useState(false);
 
-  // Accessible scroll handler respecting prefers-reduced-motion
+  // Accessible scroll handler respecting prefers-reduced-motion and fixed nav header offset
   const handleScrollToSection = (sectionId: string) => {
     const prefersReducedMotion =
       typeof window !== 'undefined' &&
       window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const el = document.getElementById(sectionId);
-    el?.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+    if (!el) return;
+
+    const navHeader = document.querySelector('header');
+    const headerHeight = navHeader ? navHeader.getBoundingClientRect().height : 72;
+    const elementPosition = el.getBoundingClientRect().top;
+    const offsetPosition = elementPosition + window.pageYOffset - headerHeight - 12;
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: prefersReducedMotion ? 'auto' : 'smooth',
+    });
   };
 
   return (

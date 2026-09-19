@@ -8,7 +8,7 @@ export const SectionD_Session: React.FC = () => {
   const [isDone, setIsDone] = useState(false);
 
   return (
-    <section id="section-session" className="py-16 sm:py-24 bg-[#050505] border-t border-white/[0.06] relative">
+    <section id="section-session" className="py-16 sm:py-24 bg-[#050505] border-t border-white/[0.06] relative scroll-mt-20 sm:scroll-mt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           {/* Left Text / Gym Principles */}
