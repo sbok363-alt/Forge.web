@@ -1,17 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { ForgeLogo } from '../ForgeLogo';
-import { Smartphone, ArrowRight, Menu, X } from 'lucide-react';
+import { ArrowRight, Menu, X, ExternalLink } from 'lucide-react';
+import { FORGE_APP_CONFIG, openForgeApp, openForgeSignIn, openForgeStartTraining } from '../../config';
 
 interface LandingNavProps {
-  onOpenApp: () => void;
-  onSignIn?: () => void;
   onNavigateSection: (sectionId: string) => void;
+  onOpenAppLaunchModal?: () => void;
 }
 
 export const LandingNav: React.FC<LandingNavProps> = ({
-  onOpenApp,
-  onSignIn,
   onNavigateSection,
+  onOpenAppLaunchModal,
 }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -26,17 +25,30 @@ export const LandingNav: React.FC<LandingNavProps> = ({
 
   const navLinks = [
     { label: 'Product', id: 'section-product' },
+    { label: 'Evidence', id: 'section-progress' },
     { label: 'Brain', id: 'section-brain' },
-    { label: 'Progress', id: 'section-progress' },
-    { label: 'Workouts', id: 'section-session' },
+    { label: 'Gym Mode', id: 'section-session' },
     { label: 'System', id: 'section-system' },
   ];
+
+  const handleStartTrainingClick = (e: React.MouseEvent) => {
+    if (onOpenAppLaunchModal) {
+      e.preventDefault();
+      onOpenAppLaunchModal();
+    } else {
+      openForgeStartTraining();
+    }
+  };
+
+  const handleSignInClick = (e: React.MouseEvent) => {
+    openForgeSignIn();
+  };
 
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-[#050505]/90 backdrop-blur-md border-b border-white/[0.08] py-3'
+          ? 'bg-[#050505]/92 backdrop-blur-md border-b border-white/[0.08] py-3'
           : 'bg-transparent py-5'
       }`}
     >
@@ -44,11 +56,11 @@ export const LandingNav: React.FC<LandingNavProps> = ({
         {/* Left: Logo */}
         <ForgeLogo
           size="md"
-          className="hover:opacity-90 transition-opacity"
+          className="hover:opacity-90 transition-opacity cursor-pointer"
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         />
 
-        {/* Center / Right desktop links */}
+        {/* Center desktop navigation links */}
         <nav className="hidden md:flex items-center gap-7 text-xs uppercase tracking-widest font-semibold text-[#A3A3A3]">
           {navLinks.map((link) => (
             <button
@@ -61,33 +73,42 @@ export const LandingNav: React.FC<LandingNavProps> = ({
           ))}
         </nav>
 
-        {/* Right action CTAs */}
+        {/* Right action CTAs linked to real FORGE deployment */}
         <div className="hidden sm:flex items-center gap-3">
-          <button
-            onClick={onSignIn}
+          <a
+            id="nav-signin-link"
+            href={FORGE_APP_CONFIG.signInUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={handleSignInClick}
             className="px-4 py-2 text-xs font-semibold text-[#A3A3A3] hover:text-white transition-colors cursor-pointer"
           >
             Sign In
-          </button>
+          </a>
 
-          <button
+          <a
             id="nav-start-training-btn"
-            onClick={onOpenApp}
+            href={FORGE_APP_CONFIG.startTrainingUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={handleStartTrainingClick}
             className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#FF7A32] text-black font-extrabold text-xs uppercase tracking-wider hover:bg-[#FF8847] active:scale-95 shadow-md shadow-[#FF7A32]/30 transition-all cursor-pointer"
           >
             <span>Start Training</span>
             <ArrowRight className="w-3.5 h-3.5 stroke-[2.5] group-hover:translate-x-0.5 transition-transform" />
-          </button>
+          </a>
         </div>
 
-        {/* Mobile hamburger */}
+        {/* Mobile menu trigger */}
         <div className="flex sm:hidden items-center gap-2">
-          <button
-            onClick={onOpenApp}
+          <a
+            href={FORGE_APP_CONFIG.startTrainingUrl}
+            target="_blank"
+            rel="noopener noreferrer"
             className="px-3 py-1.5 rounded-full bg-[#FF7A32] text-black font-bold text-xs"
           >
             Launch
-          </button>
+          </a>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="p-2 text-[#A3A3A3] hover:text-white"
@@ -117,24 +138,24 @@ export const LandingNav: React.FC<LandingNavProps> = ({
           </div>
 
           <div className="pt-4 border-t border-white/[0.08] flex flex-col gap-2.5">
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onSignIn?.();
-              }}
-              className="w-full py-2.5 rounded-xl border border-white/10 text-xs font-bold text-white text-center"
+            <a
+              href={FORGE_APP_CONFIG.signInUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full py-2.5 rounded-xl border border-white/10 text-xs font-bold text-white text-center flex items-center justify-center gap-1.5"
             >
-              Sign In
-            </button>
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenApp();
-              }}
-              className="w-full py-2.5 rounded-xl bg-[#FF7A32] text-black font-black text-xs uppercase tracking-wider text-center"
+              <span>Sign In</span>
+              <ExternalLink className="w-3 h-3 text-[#A3A3A3]" />
+            </a>
+            <a
+              href={FORGE_APP_CONFIG.startTrainingUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full py-2.5 rounded-xl bg-[#FF7A32] text-black font-black text-xs uppercase tracking-wider text-center flex items-center justify-center gap-1.5 shadow-lg shadow-[#FF7A32]/25"
             >
-              Start Training
-            </button>
+              <span>Start Training</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </a>
           </div>
         </div>
       )}

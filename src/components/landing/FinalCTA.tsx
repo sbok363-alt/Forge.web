@@ -1,9 +1,10 @@
 import React from 'react';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight, ExternalLink } from 'lucide-react';
 import { ForgeLogo } from '../ForgeLogo';
+import { FORGE_APP_CONFIG, openForgeStartTraining, openForgeSignIn } from '../../config';
 
 interface FinalCTAProps {
-  onStartTraining: () => void;
+  onStartTraining?: () => void;
   onSignIn?: () => void;
 }
 
@@ -38,20 +39,39 @@ export const FinalCTA: React.FC<FinalCTAProps> = ({
 
         {/* CTAs */}
         <div className="flex flex-col sm:flex-row items-center gap-4 w-full justify-center max-w-md">
-          <button
-            onClick={onStartTraining}
+          <a
+            href={FORGE_APP_CONFIG.startTrainingUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={(e) => {
+              if (onStartTraining) {
+                onStartTraining();
+              } else {
+                openForgeStartTraining();
+              }
+            }}
             className="w-full sm:w-auto px-8 py-4 rounded-full bg-[#FF7A32] hover:bg-[#FF8847] active:scale-95 text-black font-extrabold text-sm uppercase tracking-wider flex items-center justify-center gap-2.5 shadow-2xl shadow-[#FF7A32]/40 transition-all cursor-pointer"
           >
             <span>Start Training</span>
             <ArrowRight className="w-4 h-4 stroke-[3]" />
-          </button>
+          </a>
 
-          <button
-            onClick={onSignIn}
-            className="w-full sm:w-auto px-8 py-4 rounded-full bg-white/[0.04] hover:bg-white/[0.08] active:scale-95 border border-white/[0.12] text-white font-bold text-sm tracking-wider transition-all cursor-pointer"
+          <a
+            href={FORGE_APP_CONFIG.signInUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={(e) => {
+              if (onSignIn) {
+                onSignIn();
+              } else {
+                openForgeSignIn();
+              }
+            }}
+            className="w-full sm:w-auto px-8 py-4 rounded-full bg-white/[0.04] hover:bg-white/[0.08] active:scale-95 border border-white/[0.12] text-white font-bold text-sm tracking-wider flex items-center justify-center gap-2 transition-all cursor-pointer"
           >
             <span>Sign In</span>
-          </button>
+            <ExternalLink className="w-3.5 h-3.5 text-[#8E8E93]" />
+          </a>
         </div>
 
         {/* Micro detail badge */}

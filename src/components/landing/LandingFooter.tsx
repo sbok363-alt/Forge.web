@@ -1,9 +1,11 @@
 import React from 'react';
 import { ForgeLogo } from '../ForgeLogo';
+import { FORGE_APP_CONFIG, openForgeApp } from '../../config';
+import { ExternalLink } from 'lucide-react';
 
 interface LandingFooterProps {
   onNavigateSection: (sectionId: string) => void;
-  onOpenApp: () => void;
+  onOpenApp?: () => void;
 }
 
 export const LandingFooter: React.FC<LandingFooterProps> = ({
@@ -50,21 +52,32 @@ export const LandingFooter: React.FC<LandingFooterProps> = ({
 
             <div>
               <div className="font-bold text-white uppercase text-[10px] tracking-wider mb-2.5">
-                System
+                Deployment
               </div>
               <ul className="space-y-1.5 text-[11px]">
                 <li>
-                  <button onClick={onOpenApp} className="hover:text-white transition-colors cursor-pointer">
-                    Live App Shell
-                  </button>
+                  <a
+                    href={FORGE_APP_CONFIG.appUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-white transition-colors cursor-pointer flex items-center gap-1"
+                  >
+                    <span>FORGE Web App</span>
+                    <ExternalLink className="w-2.5 h-2.5 text-[#A3A3A3]" />
+                  </a>
                 </li>
                 <li>
-                  <button onClick={() => onNavigateSection('section-session')} className="hover:text-white transition-colors cursor-pointer">
-                    Active Gym Mode
-                  </button>
+                  <a
+                    href={FORGE_APP_CONFIG.signInUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-white transition-colors cursor-pointer"
+                  >
+                    Athlete Portal
+                  </a>
                 </li>
                 <li>
-                  <span className="text-[#686868]">Changelog (v1.0)</span>
+                  <span className="text-[#686868]">Release {FORGE_APP_CONFIG.appVersion}</span>
                 </li>
               </ul>
             </div>

@@ -8,9 +8,10 @@ import { BrainScreen } from '../screens/BrainScreen';
 import { ActiveWorkoutScreen } from '../screens/ActiveWorkoutScreen';
 import { LiquidNav } from '../LiquidNav';
 import { AppTab } from '../../types';
+import { FORGE_APP_CONFIG, openForgeStartTraining } from '../../config';
 
 interface HeroSectionProps {
-  onStartTraining: () => void;
+  onStartTraining?: () => void;
   onExploreClick: () => void;
 }
 
@@ -20,6 +21,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 }) => {
   const [centerTab, setCenterTab] = useState<AppTab>('home');
   const [showActiveSession, setShowActiveSession] = useState(false);
+
+  const handleStartTraining = (e: React.MouseEvent) => {
+    if (onStartTraining) {
+      onStartTraining();
+    } else {
+      openForgeStartTraining();
+    }
+  };
 
   return (
     <section className="relative min-h-screen pt-28 pb-20 overflow-hidden bg-[#050505] flex flex-col justify-between">
@@ -95,14 +104,17 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
         {/* Primary Action Buttons */}
         <div className="flex flex-col sm:flex-row items-center gap-4 mb-14">
-          <button
+          <a
             id="hero-primary-cta"
-            onClick={onStartTraining}
+            href={FORGE_APP_CONFIG.startTrainingUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={handleStartTraining}
             className="w-full sm:w-auto px-8 py-4 rounded-full bg-[#FF7A32] hover:bg-[#FF8847] active:scale-95 text-black font-extrabold text-sm uppercase tracking-wider flex items-center justify-center gap-2.5 shadow-xl shadow-[#FF7A32]/35 transition-all cursor-pointer"
           >
             <span>Start Training</span>
             <ArrowRight className="w-4 h-4 stroke-[3]" />
-          </button>
+          </a>
 
           <button
             onClick={onExploreClick}

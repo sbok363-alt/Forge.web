@@ -1,9 +1,16 @@
 import React, { useState } from 'react';
-import { Home, Dumbbell, Brain, BarChart2, User, ArrowRight } from 'lucide-react';
+import { Home, Dumbbell, Brain, BarChart2, User, ArrowRight, ExternalLink } from 'lucide-react';
 import { AppTab } from '../../types';
+import { FORGE_APP_CONFIG, openForgeApp } from '../../config';
+import { PhoneFrame } from '../PhoneFrame';
+import { HomeScreen } from '../screens/HomeScreen';
+import { WorkoutsScreen } from '../screens/WorkoutsScreen';
+import { BrainScreen } from '../screens/BrainScreen';
+import { StatsScreen } from '../screens/StatsScreen';
+import { ProfileScreen } from '../screens/ProfileScreen';
 
 interface SectionE_OneSystemProps {
-  onLaunchTab: (tab: AppTab) => void;
+  onLaunchTab?: (tab: AppTab) => void;
 }
 
 export const SectionE_OneSystem: React.FC<SectionE_OneSystemProps> = ({
@@ -183,38 +190,56 @@ export const SectionE_OneSystem: React.FC<SectionE_OneSystemProps> = ({
                 ))}
               </div>
 
-              <div className="pt-4">
-                <button
-                  onClick={() => onLaunchTab(current.id)}
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white text-black font-extrabold text-xs uppercase tracking-wider hover:bg-neutral-200 transition-all cursor-pointer"
+              <div className="pt-4 flex flex-wrap items-center gap-3">
+                <a
+                  href={`${FORGE_APP_CONFIG.appUrl}/${current.id}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => {
+                    if (onLaunchTab) {
+                      onLaunchTab(current.id);
+                    } else {
+                      openForgeApp(current.id);
+                    }
+                  }}
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#FF7A32] text-black font-extrabold text-xs uppercase tracking-wider hover:bg-[#FF8847] transition-all shadow-md shadow-[#FF7A32]/25 cursor-pointer"
                 >
-                  <span>Open {current.label} in App</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </button>
+                  <span>Launch {current.label} on App</span>
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+
+                <div className="text-[11px] text-[#686868] flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                  <span>Interactive product preview loaded</span>
+                </div>
               </div>
             </div>
 
-            {/* Right Quick Visual Snapshot */}
-            <div className="lg:col-span-5 p-6 rounded-2xl bg-black/60 border border-white/[0.07] flex flex-col justify-between h-full">
-              <div className="text-xs font-mono text-[#8E8E93] uppercase tracking-wider mb-4 pb-2 border-b border-white/[0.06]">
-                Destination Architecture Summary
-              </div>
-              <div className="space-y-3 text-xs text-[#A3A3A3]">
-                <div className="flex justify-between">
-                  <span>Persistence:</span>
-                  <span className="font-mono text-white">Local-First (Offline-Ready)</span>
+            {/* Right Interactive Live Screen Preview Frame */}
+            <div className="lg:col-span-5 flex flex-col items-center justify-center">
+              <div className="w-full max-w-[320px] rounded-3xl overflow-hidden border border-white/[0.12] bg-[#0A0A0D] shadow-2xl relative">
+                {/* Header preview pill */}
+                <div className="px-4 py-2 bg-black/70 border-b border-white/[0.08] flex items-center justify-between text-[10px] font-mono text-[#8E8E93]">
+                  <span className="flex items-center gap-1.5 text-white font-bold">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#FF7A32]" />
+                    FORGE // {current.label.toUpperCase()}
+                  </span>
+                  <span>PREVIEW</span>
                 </div>
-                <div className="flex justify-between">
-                  <span>Sync Interval:</span>
-                  <span className="font-mono text-white">Continuous Instant</span>
+
+                {/* Scaled view of the real screen component */}
+                <div className="h-[430px] overflow-y-auto overflow-x-hidden p-2 text-left select-none pointer-events-none sm:pointer-events-auto">
+                  {activeTab === 'home' && <HomeScreen onStartWorkout={() => {}} />}
+                  {activeTab === 'workouts' && <WorkoutsScreen onStartWorkout={() => {}} />}
+                  {activeTab === 'brain' && <BrainScreen />}
+                  {activeTab === 'stats' && <StatsScreen />}
+                  {activeTab === 'profile' && <ProfileScreen onSignOut={() => {}} />}
                 </div>
-                <div className="flex justify-between">
-                  <span>Overload Vector:</span>
-                  <span className="font-mono text-emerald-400">Target RIR &amp; Vol.</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Privacy Level:</span>
-                  <span className="font-mono text-white">Zero Third-Party Scraping</span>
+
+                {/* Bottom preview footer bar */}
+                <div className="p-2.5 bg-black/80 border-t border-white/[0.08] flex items-center justify-between text-[10px] text-[#8E8E93]">
+                  <span>Local-first encrypted state</span>
+                  <span className="text-[#FF7A32] font-bold font-mono">v2.4.0</span>
                 </div>
               </div>
             </div>
