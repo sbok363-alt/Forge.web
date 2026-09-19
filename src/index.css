@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #050505;
+    color: #F5F5F5;
+  }
+}
+
+/* Custom glow and liquid nav utilities */
+.forge-glow-orange {
+  box-shadow: 0 0 40px -10px rgba(255, 122, 50, 0.35);
+}
+
+.forge-glow-orange-intense {
+  box-shadow: 0 0 60px -5px rgba(255, 122, 50, 0.55);
+}
+
+.forge-glow-pill {
+  box-shadow: 0 0 16px 2px rgba(255, 122, 50, 0.6);
+}
+
+.forge-border {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.forge-border-hover:hover {
+  border-color: rgba(255, 122, 50, 0.3);
+}
+
+.forge-bg-subtle {
+  background-color: #0B0B0C;
+}
+
+.forge-bg-card {
+  background-color: #101011;
+}
+
+.forge-bg-elevated {
+  background-color: #151516;
+}
+
+/* Atmospheric orange radial background */
+.radial-forge-glow {
+  background: radial-gradient(ellipse 65% 50% at 50% 40%, rgba(255, 122, 50, 0.15), transparent 75%);
+}
+
+.radial-forge-glow-strong {
+  background: radial-gradient(ellipse 60% 45% at 50% 35%, rgba(255, 122, 50, 0.28), rgba(255, 122, 50, 0.05) 55%, transparent 80%);
+}
+
+/* Subtle grain overlay */
+.grain-overlay {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+::-webkit-scrollbar-thumb {
+  background: #262626;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #404040;
+}

@@ -1,0 +1,70 @@
+import React from 'react';
+import { ArrowRight, Sparkles } from 'lucide-react';
+import { ForgeLogo } from '../ForgeLogo';
+
+interface FinalCTAProps {
+  onStartTraining: () => void;
+  onSignIn?: () => void;
+}
+
+export const FinalCTA: React.FC<FinalCTAProps> = ({
+  onStartTraining,
+  onSignIn,
+}) => {
+  return (
+    <section className="py-28 bg-[#050505] relative overflow-hidden text-center border-t border-white/[0.06]">
+      {/* Intense Forge Orange Glow in background */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-[#FF7A32]/20 blur-[130px] rounded-full pointer-events-none" />
+
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10 flex flex-col items-center">
+        {/* Emblem */}
+        <div className="mb-6">
+          <ForgeLogo size="lg" showTagline={true} />
+        </div>
+
+        {/* Master Heading */}
+        <h2 className="text-4xl sm:text-6xl font-black text-white uppercase tracking-tight leading-[1.05] mb-6">
+          Your Next Session
+          <br />
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF9457] via-[#FF7A32] to-[#FF5500]">
+            Starts Here.
+          </span>
+        </h2>
+
+        {/* Subtext */}
+        <p className="max-w-xl text-base sm:text-lg text-[#A3A3A3] mb-10 leading-relaxed font-normal">
+          Turn your training into something you can measure, understand, and improve. Every set logged today is progressive overload tomorrow.
+        </p>
+
+        {/* CTAs */}
+        <div className="flex flex-col sm:flex-row items-center gap-4 w-full justify-center max-w-md">
+          <button
+            onClick={onStartTraining}
+            className="w-full sm:w-auto px-8 py-4 rounded-full bg-[#FF7A32] hover:bg-[#FF8847] active:scale-95 text-black font-extrabold text-sm uppercase tracking-wider flex items-center justify-center gap-2.5 shadow-2xl shadow-[#FF7A32]/40 transition-all cursor-pointer"
+          >
+            <span>Start Training</span>
+            <ArrowRight className="w-4 h-4 stroke-[3]" />
+          </button>
+
+          <button
+            onClick={onSignIn}
+            className="w-full sm:w-auto px-8 py-4 rounded-full bg-white/[0.04] hover:bg-white/[0.08] active:scale-95 border border-white/[0.12] text-white font-bold text-sm tracking-wider transition-all cursor-pointer"
+          >
+            <span>Sign In</span>
+          </button>
+        </div>
+
+        {/* Micro detail badge */}
+        <div className="mt-12 flex items-center gap-2 text-[10px] uppercase font-bold tracking-[0.25em] text-[#686868]">
+          <span>DATA</span>
+          <span>•</span>
+          <span>INSIGHTS</span>
+          <span>•</span>
+          <span>PROGRESS</span>
+          <span>•</span>
+          <span className="text-[#A3A3A3]">RESULTS</span>
+        </div>
+      </div>
+    </section>
+  );
+};

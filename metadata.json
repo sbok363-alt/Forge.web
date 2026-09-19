@@ -1,0 +1,6 @@
+{
+  "name": "FORGE - Evidence-Based Training & Intelligence",
+  "description": "Train with evidence. Progress with intent. FORGE connects workout logging, progressive overload, and intelligent training analytics into one unified system.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
