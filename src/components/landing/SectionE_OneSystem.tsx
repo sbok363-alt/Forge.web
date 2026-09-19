@@ -69,8 +69,8 @@ export const SectionE_OneSystem: React.FC<SectionE_OneSystemProps> = ({
       id: 'stats',
       label: 'Stats',
       icon: <BarChart2 className="w-5 h-5" />,
-      subtitle: 'Objective Adaptation Analytics',
-      role: 'The scientific proof layer: tracking progressive volume, strength trend, and volume distribution.',
+      subtitle: 'Volume & Progress Analytics',
+      role: 'The empirical proof layer: tracking progressive volume, strength trends, and volume distribution.',
       details: [
         '1W, 1M, 3M, 1Y mesocycle volume trajectories',
         'Anatomical muscle training distribution',
@@ -204,42 +204,47 @@ export const SectionE_OneSystem: React.FC<SectionE_OneSystemProps> = ({
                   }}
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#FF7A32] text-black font-extrabold text-xs uppercase tracking-wider hover:bg-[#FF8847] transition-all shadow-md shadow-[#FF7A32]/25 cursor-pointer"
                 >
-                  <span>Launch {current.label} on App</span>
+                  <span>Open in FORGE</span>
                   <ExternalLink className="w-3.5 h-3.5" />
                 </a>
 
                 <div className="text-[11px] text-[#686868] flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                  <span>Interactive product preview loaded</span>
+                  <span>Live product preview loaded</span>
                 </div>
               </div>
             </div>
 
-            {/* Right Interactive Live Screen Preview Frame */}
+            {/* Right Interactive Live Screen Preview Frame (Physical Device Feel) */}
             <div className="lg:col-span-5 flex flex-col items-center justify-center">
-              <div className="w-full max-w-[320px] rounded-3xl overflow-hidden border border-white/[0.12] bg-[#0A0A0D] shadow-2xl relative">
-                {/* Header preview pill */}
-                <div className="px-4 py-2 bg-black/70 border-b border-white/[0.08] flex items-center justify-between text-[10px] font-mono text-[#8E8E93]">
-                  <span className="flex items-center gap-1.5 text-white font-bold">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#FF7A32]" />
-                    FORGE // {current.label.toUpperCase()}
-                  </span>
-                  <span>PREVIEW</span>
-                </div>
+              <div className="w-full max-w-[325px] rounded-[36px] p-[6px] bg-gradient-to-b from-[#24242A] via-[#151518] to-[#0C0C0E] border border-white/[0.12] shadow-[0_25px_60px_-15px_rgba(0,0,0,0.95)] relative ring-1 ring-[#FF7A32]/20">
+                {/* Physical Glass Highlight */}
+                <div className="absolute inset-0 rounded-[36px] bg-gradient-to-tr from-transparent via-transparent to-white/[0.04] pointer-events-none z-30" />
 
-                {/* Scaled view of the real screen component */}
-                <div className="h-[430px] overflow-y-auto overflow-x-hidden p-2 text-left select-none pointer-events-none sm:pointer-events-auto">
-                  {activeTab === 'home' && <HomeScreen onStartWorkout={() => {}} />}
-                  {activeTab === 'workouts' && <WorkoutsScreen onStartWorkout={() => {}} />}
-                  {activeTab === 'brain' && <BrainScreen />}
-                  {activeTab === 'stats' && <StatsScreen />}
-                  {activeTab === 'profile' && <ProfileScreen onSignOut={() => {}} />}
-                </div>
+                <div className="w-full rounded-[30px] overflow-hidden bg-[#050505] border border-black flex flex-col">
+                  {/* Header preview bar */}
+                  <div className="px-4 py-2 bg-black/80 border-b border-white/[0.08] flex items-center justify-between text-[10px] font-mono text-[#8E8E93] shrink-0">
+                    <span className="flex items-center gap-1.5 text-white font-bold">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#FF7A32]" />
+                      FORGE // {current.label.toUpperCase()}
+                    </span>
+                    <span className="text-[9px] px-1.5 py-0.5 rounded-md bg-white/[0.06] text-[#A3A3A3]">LIVE</span>
+                  </div>
 
-                {/* Bottom preview footer bar */}
-                <div className="p-2.5 bg-black/80 border-t border-white/[0.08] flex items-center justify-between text-[10px] text-[#8E8E93]">
-                  <span>Local-first encrypted state</span>
-                  <span className="text-[#FF7A32] font-bold font-mono">v2.4.0</span>
+                  {/* Scaled view of the real screen component */}
+                  <div className="h-[430px] overflow-y-auto overflow-x-hidden p-2 text-left select-none pointer-events-none sm:pointer-events-auto scrollbar-none">
+                    {activeTab === 'home' && <HomeScreen onStartWorkout={() => {}} />}
+                    {activeTab === 'workouts' && <WorkoutsScreen onStartWorkout={() => {}} />}
+                    {activeTab === 'brain' && <BrainScreen />}
+                    {activeTab === 'stats' && <StatsScreen />}
+                    {activeTab === 'profile' && <ProfileScreen onSignOut={() => {}} />}
+                  </div>
+
+                  {/* Bottom preview footer bar with home indicator */}
+                  <div className="p-2.5 bg-black/80 border-t border-white/[0.08] flex items-center justify-between text-[10px] text-[#8E8E93] shrink-0">
+                    <span>Local-first encrypted state</span>
+                    <span className="text-[#FF7A32] font-bold font-mono">v2.4.0</span>
+                  </div>
                 </div>
               </div>
             </div>

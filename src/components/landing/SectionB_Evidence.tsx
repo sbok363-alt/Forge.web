@@ -37,7 +37,7 @@ export const SectionB_Evidence: React.FC = () => {
           </h2>
 
           <p className="text-base sm:text-lg text-[#A3A3A3] leading-relaxed">
-            No vanity scores or fake scientific algorithms. FORGE isolates the metrics that dictate muscular adaptation: progressive volume, estimated 1RM trajectory, and set density.
+            No vanity scores or arbitrary gamification. FORGE isolates the metrics that directly reflect strength and hypertrophy progress: progressive volume, estimated 1RM trajectory, and set consistency.
           </p>
         </div>
 

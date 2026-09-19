@@ -13,18 +13,18 @@ export const FinalCTA: React.FC<FinalCTAProps> = ({
   onSignIn,
 }) => {
   return (
-    <section className="py-28 bg-[#050505] relative overflow-hidden text-center border-t border-white/[0.06]">
-      {/* Intense Forge Orange Glow in background */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-[#FF7A32]/20 blur-[130px] rounded-full pointer-events-none" />
+    <section className="py-16 sm:py-28 bg-[#050505] relative overflow-hidden text-center border-t border-white/[0.06]">
+      {/* Restrained Forge Orange Glow in background */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] sm:w-[650px] h-[300px] sm:h-[400px] bg-[#FF7A32]/14 blur-[100px] rounded-full pointer-events-none" />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10 flex flex-col items-center">
         {/* Emblem */}
-        <div className="mb-6">
+        <div className="mb-4 sm:mb-6">
           <ForgeLogo size="lg" showTagline={true} />
         </div>
 
         {/* Master Heading */}
-        <h2 className="text-4xl sm:text-6xl font-black text-white uppercase tracking-tight leading-[1.05] mb-6">
+        <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white uppercase tracking-tight leading-[1.06] mb-4 sm:mb-6">
           Your Next Session
           <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF9457] via-[#FF7A32] to-[#FF5500]">
@@ -33,12 +33,12 @@ export const FinalCTA: React.FC<FinalCTAProps> = ({
         </h2>
 
         {/* Subtext */}
-        <p className="max-w-xl text-base sm:text-lg text-[#A3A3A3] mb-10 leading-relaxed font-normal">
+        <p className="max-w-xl text-sm sm:text-lg text-[#A3A3A3] mb-6 sm:mb-10 leading-relaxed font-normal px-2">
           Turn your training into something you can measure, understand, and improve. Every set logged today is progressive overload tomorrow.
         </p>
 
         {/* CTAs */}
-        <div className="flex flex-col sm:flex-row items-center gap-4 w-full justify-center max-w-md">
+        <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 w-full justify-center max-w-md">
           <a
             href={FORGE_APP_CONFIG.startTrainingUrl}
             target="_blank"
@@ -50,7 +50,7 @@ export const FinalCTA: React.FC<FinalCTAProps> = ({
                 openForgeStartTraining();
               }
             }}
-            className="w-full sm:w-auto px-8 py-4 rounded-full bg-[#FF7A32] hover:bg-[#FF8847] active:scale-95 text-black font-extrabold text-sm uppercase tracking-wider flex items-center justify-center gap-2.5 shadow-2xl shadow-[#FF7A32]/40 transition-all cursor-pointer"
+            className="w-full sm:w-auto px-7 sm:px-8 py-3.5 sm:py-4 rounded-full bg-[#FF7A32] hover:bg-[#FF8847] active:scale-95 text-black font-extrabold text-xs sm:text-sm uppercase tracking-wider flex items-center justify-center gap-2.5 shadow-xl shadow-[#FF7A32]/25 transition-all cursor-pointer"
           >
             <span>Start Training</span>
             <ArrowRight className="w-4 h-4 stroke-[3]" />
@@ -67,7 +67,7 @@ export const FinalCTA: React.FC<FinalCTAProps> = ({
                 openForgeSignIn();
               }
             }}
-            className="w-full sm:w-auto px-8 py-4 rounded-full bg-white/[0.04] hover:bg-white/[0.08] active:scale-95 border border-white/[0.12] text-white font-bold text-sm tracking-wider flex items-center justify-center gap-2 transition-all cursor-pointer"
+            className="w-full sm:w-auto px-7 sm:px-8 py-3.5 sm:py-4 rounded-full bg-white/[0.04] hover:bg-white/[0.08] active:scale-95 border border-white/[0.12] text-white font-bold text-xs sm:text-sm tracking-wider flex items-center justify-center gap-2 transition-all cursor-pointer"
           >
             <span>Sign In</span>
             <ExternalLink className="w-3.5 h-3.5 text-[#8E8E93]" />

@@ -10,7 +10,7 @@ export const SectionC_Brain: React.FC = () => {
       query: 'Should I increase weight on Barbell Bench Press?',
       evidence: 'Completed 60 kg x 10, 9, 8 at RIR 2, 2, 1 across 3 sessions (+4 total reps delta).',
       recommendation:
-        "Maintain 60 kg for 1 more session to consolidate 10 reps on sets 2 and 3 before progressing to 62.5 kg. This ensures neuromuscular adaptation without premature form decay.",
+        'Maintain 60 kg for 1 more session to consolidate 10 reps on sets 2 and 3 before progressing to 62.5 kg. This solidifies your strength base before advancing load.',
       action: 'Keep load at 60 kg for Set 1-3',
     },
     {
@@ -34,13 +34,13 @@ export const SectionC_Brain: React.FC = () => {
   const current = scenarios[selectedScenario];
 
   return (
-    <section id="section-brain" className="py-24 bg-[#080809] border-t border-white/[0.06] relative overflow-hidden">
-      {/* Intense Forge Brain Orange Halo */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-[#FF7A32]/15 blur-[120px] rounded-full pointer-events-none" />
+    <section id="section-brain" className="py-16 sm:py-24 bg-[#080809] border-t border-white/[0.06] relative overflow-hidden">
+      {/* Restrained Forge Brain Orange Halo */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] sm:w-[700px] h-[400px] sm:h-[500px] bg-[#FF7A32]/12 blur-[100px] rounded-full pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className="max-w-3xl mb-16">
+        <div className="max-w-3xl mb-10 sm:mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1C1714] border border-[#FF7A32]/40 mb-4">
             <Brain className="w-3.5 h-3.5 text-[#FF7A32]" />
             <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#FF7A32]">
@@ -61,7 +61,7 @@ export const SectionC_Brain: React.FC = () => {
         </div>
 
         {/* The 5-Stage Evidence Pipeline Graphic */}
-        <div className="mb-14 p-6 sm:p-8 rounded-3xl bg-[#0D0D10] border border-white/[0.1] shadow-2xl">
+        <div className="mb-10 sm:mb-14 p-4 sm:p-8 rounded-3xl bg-[#0D0D10] border border-white/[0.1] shadow-2xl">
           <div className="text-xs font-bold uppercase tracking-widest text-[#8E8E93] mb-6 text-center sm:text-left">
             Evidence-Based Decision Architecture
           </div>
@@ -70,7 +70,7 @@ export const SectionC_Brain: React.FC = () => {
             {[
               { step: '01', title: 'FORGE DATA', desc: 'Sets, reps, loads, RIR, cadence', icon: <Database className="w-4 h-4 text-white" /> },
               { step: '02', title: 'EVIDENCE', desc: 'Multi-week progression delta', icon: <FileText className="w-4 h-4 text-white" /> },
-              { step: '03', title: 'FORGE BRAIN', desc: 'Neuromuscular trend analysis', icon: <Brain className="w-4 h-4 text-[#FF7A32]" /> },
+              { step: '03', title: 'FORGE BRAIN', desc: 'Training trend analysis', icon: <Brain className="w-4 h-4 text-[#FF7A32]" /> },
               { step: '04', title: 'RECOMMENDATION', desc: 'Actionable load & set proposals', icon: <Sparkles className="w-4 h-4 text-[#FF9457]" /> },
               { step: '05', title: 'USER APPROVAL', desc: 'Athlete stays in total control', icon: <CheckCircle2 className="w-4 h-4 text-emerald-400" /> },
             ].map((node, i) => (

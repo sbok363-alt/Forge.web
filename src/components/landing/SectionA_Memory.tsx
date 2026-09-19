@@ -49,9 +49,9 @@ export const SectionA_Memory: React.FC = () => {
     .reduce((acc, s) => acc + s.weight * s.reps, 0);
 
   return (
-    <section id="section-product" className="py-24 bg-[#070708] border-t border-white/[0.06] relative">
+    <section id="section-product" className="py-16 sm:py-24 bg-[#070708] border-t border-white/[0.06] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           {/* Left Text Narrative */}
           <div className="lg:col-span-5 space-y-6">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08]">
@@ -106,7 +106,7 @@ export const SectionA_Memory: React.FC = () => {
 
           {/* Right Tactile Logger Preview */}
           <div className="lg:col-span-7">
-            <div className="relative rounded-3xl bg-[#0D0D0F] border border-white/[0.1] p-6 sm:p-8 shadow-2xl overflow-hidden">
+            <div className="relative rounded-3xl bg-[#0D0D0F] border border-white/[0.1] p-4 sm:p-8 shadow-2xl overflow-hidden">
               {/* Subtle orange accent gradient */}
               <div className="absolute top-0 right-0 w-80 h-80 bg-[#FF7A32]/10 rounded-full blur-3xl pointer-events-none" />
 

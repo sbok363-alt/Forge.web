@@ -105,9 +105,9 @@ export const LandingNav: React.FC<LandingNavProps> = ({
             href={FORGE_APP_CONFIG.startTrainingUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-3 py-1.5 rounded-full bg-[#FF7A32] text-black font-bold text-xs"
+            className="px-3.5 py-1.5 rounded-full bg-[#FF7A32] text-black font-extrabold text-[11px] uppercase tracking-wider"
           >
-            Launch
+            Start Training
           </a>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}

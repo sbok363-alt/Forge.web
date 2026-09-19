@@ -8,9 +8,9 @@ export const SectionD_Session: React.FC = () => {
   const [isDone, setIsDone] = useState(false);
 
   return (
-    <section id="section-session" className="py-24 bg-[#050505] border-t border-white/[0.06] relative">
+    <section id="section-session" className="py-16 sm:py-24 bg-[#050505] border-t border-white/[0.06] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           {/* Left Text / Gym Principles */}
           <div className="lg:col-span-5 space-y-6">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08]">
@@ -46,7 +46,7 @@ export const SectionD_Session: React.FC = () => {
                 {
                   icon: <Dumbbell className="w-4 h-4 text-[#FF7A32]" />,
                   title: 'Warmup & Drop Set Categorization',
-                  desc: 'Distinguish working sets from ramp-ups so volume algorithms only count true adaptation drivers.',
+                  desc: 'Distinguish working sets from warm-ups so your progress analytics accurately reflect meaningful training volume.',
                 },
               ].map((feat, i) => (
                 <div key={i} className="flex items-start gap-3.5">
@@ -64,7 +64,7 @@ export const SectionD_Session: React.FC = () => {
 
           {/* Right Gym Console Simulation */}
           <div className="lg:col-span-7">
-            <div className="bg-[#0D0D10] border border-white/[0.1] rounded-3xl p-6 sm:p-8 shadow-2xl relative overflow-hidden">
+            <div className="bg-[#0D0D10] border border-white/[0.1] rounded-3xl p-4 sm:p-8 shadow-2xl relative overflow-hidden">
               {/* Top Bar */}
               <div className="flex items-center justify-between pb-4 border-b border-white/[0.08] mb-6">
                 <div>
