@@ -16,10 +16,6 @@ export const FORGE_APP_CONFIG = {
   // Mobile platforms
   iosTestflightUrl: 'https://testflight.apple.com/join/forge',
   androidPlayStoreUrl: 'https://play.google.com/store/apps/details?id=fit.forge.app',
-
-  // System version & status
-  appVersion: 'v2.4.0-prod',
-  status: 'Operational',
 };
 
 /**

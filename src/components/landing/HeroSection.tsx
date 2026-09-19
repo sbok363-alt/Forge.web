@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowRight, Play, Sparkles, ChevronRight, Activity, Zap } from 'lucide-react';
+import { ArrowRight, ChevronRight } from 'lucide-react';
 import { PhoneFrame } from '../PhoneFrame';
 import { HomeScreen } from '../screens/HomeScreen';
 import { WorkoutsScreen } from '../screens/WorkoutsScreen';
@@ -8,7 +8,8 @@ import { BrainScreen } from '../screens/BrainScreen';
 import { ActiveWorkoutScreen } from '../screens/ActiveWorkoutScreen';
 import { LiquidNav } from '../LiquidNav';
 import { AppTab } from '../../types';
-import { FORGE_APP_CONFIG, openForgeStartTraining } from '../../config';
+import { FORGE_APP_CONFIG } from '../../config';
+import { motion, AnimatePresence } from 'motion/react';
 
 interface HeroSectionProps {
   onStartTraining?: () => void;
@@ -16,26 +17,26 @@ interface HeroSectionProps {
 }
 
 export const HeroSection: React.FC<HeroSectionProps> = ({
-  onStartTraining,
   onExploreClick,
 }) => {
   const [centerTab, setCenterTab] = useState<AppTab>('home');
   const [showActiveSession, setShowActiveSession] = useState(false);
 
-  const handleStartTraining = (e: React.MouseEvent) => {
-    if (onStartTraining) {
-      onStartTraining();
-    } else {
-      openForgeStartTraining();
-    }
-  };
+  const screens = [
+    { id: 'home', label: 'Home' },
+    { id: 'workouts', label: 'Workouts' },
+    { id: 'active', label: 'Active Session' },
+    { id: 'brain', label: 'Brain' },
+    { id: 'stats', label: 'Stats' },
+  ];
+
+  const currentActiveId = showActiveSession ? 'active' : centerTab;
 
   return (
     <section className="relative min-h-screen pt-20 sm:pt-28 pb-10 sm:pb-16 overflow-hidden bg-[#050505] flex flex-col justify-between">
-      {/* Background Atmosphere: Restrained Orange Radial Glow + Noise */}
+      {/* Background Atmosphere: Restrained Orange Radial Glow */}
       <div className="absolute inset-0 pointer-events-none z-0">
-        {/* Core radiant orange atmospheric energy behind device mockup */}
-        <div className="absolute top-[38%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] sm:w-[850px] h-[450px] sm:h-[550px] radial-forge-glow opacity-70 blur-3xl" />
+        <div className="absolute top-[38%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] sm:w-[850px] h-[450px] sm:h-[550px] radial-forge-glow opacity-60 blur-3xl" />
 
         {/* Subtle curved energy line traveling across dark space */}
         <svg
@@ -52,18 +53,18 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           <defs>
             <linearGradient id="hero-energy-grad" x1="0" y1="0" x2="1440" y2="0" gradientUnits="userSpaceOnUse">
               <stop offset="0%" stopColor="#FF7A32" stopOpacity="0" />
-              <stop offset="30%" stopColor="#FF7A32" stopOpacity="0.6" />
-              <stop offset="70%" stopColor="#FF9457" stopOpacity="0.7" />
+              <stop offset="30%" stopColor="#FF7A32" stopOpacity="0.5" />
+              <stop offset="70%" stopColor="#FF9457" stopOpacity="0.6" />
               <stop offset="100%" stopColor="#FF7A32" stopOpacity="0" />
             </linearGradient>
           </defs>
         </svg>
 
         {/* Faint subtle grid texture */}
-        <div className="absolute inset-0 grain-overlay opacity-35" />
+        <div className="absolute inset-0 grain-overlay opacity-30" />
       </div>
 
-      {/* Microdetails: Left & Right Vertical Typography from Reference */}
+      {/* Vertical Side Accents */}
       <div className="hidden xl:flex absolute left-8 top-1/2 -translate-y-1/2 z-10 flex-col items-start gap-3 pointer-events-none select-none text-[10px] font-bold tracking-[0.3em] uppercase text-[#686868]">
         <span className="w-4 h-[1px] bg-[#FF7A32]/60" />
         <span className="writing-vertical-lr rotate-180">BUILT</span>
@@ -84,14 +85,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex flex-col items-center text-center">
         {/* Pill Tagline */}
         <div className="inline-flex items-center gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] mb-3.5 sm:mb-6 backdrop-blur-xs">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#FF7A32] animate-pulse" />
+          <span className="w-1.5 h-1.5 rounded-full bg-[#FF7A32]" />
           <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.25em] text-[#A3A3A3]">
             Discipline Today. A Stronger Tomorrow.
           </span>
         </div>
 
         {/* Master Headline */}
-        <h1 className="text-[2.1rem] leading-[1.08] sm:text-5xl lg:text-7xl font-black text-white tracking-tight uppercase max-w-4xl mb-3.5 sm:mb-6">
+        <h1 className="text-[2.1rem] leading-[1.08] sm:text-5xl lg:text-7xl font-extrabold text-white -tracking-[0.02em] uppercase max-w-4xl mb-3.5 sm:mb-6">
           Train with <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-[#F5F5F5] to-neutral-400">evidence.</span>
           <br />
           Progress with <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF9457] via-[#FF7A32] to-[#FF5500]">intent.</span>
@@ -99,18 +100,17 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
         {/* Supporting Copy */}
         <p className="max-w-2xl text-xs sm:text-base lg:text-lg text-[#A3A3A3] font-normal leading-relaxed mb-4 sm:mb-7 px-2">
-          Every set becomes evidence. FORGE turns your workout history, volume trends, and progressive overload into training decisions you can actually use.
+          Every set becomes evidence. FORGE connects workout logging, progressive overload, and training intelligence into one system built for serious lifters.
         </p>
 
-        {/* Primary Action Buttons */}
-        <div className="flex flex-col sm:flex-row items-center gap-2.5 sm:gap-4 mb-4 sm:mb-7 w-full sm:w-auto px-2 sm:px-0">
+        {/* Primary Action Buttons (pure semantic links, no duplicate window.open calls) */}
+        <div className="flex flex-col sm:flex-row items-center gap-2.5 sm:gap-4 mb-5 sm:mb-8 w-full sm:w-auto px-2 sm:px-0">
           <a
             id="hero-primary-cta"
             href={FORGE_APP_CONFIG.startTrainingUrl}
             target="_blank"
             rel="noopener noreferrer"
-            onClick={handleStartTraining}
-            className="w-full sm:w-auto px-7 sm:px-8 py-3.5 sm:py-4 rounded-full bg-[#FF7A32] hover:bg-[#FF8847] active:scale-95 text-black font-extrabold text-xs sm:text-sm uppercase tracking-wider flex items-center justify-center gap-2 sm:gap-2.5 shadow-xl shadow-[#FF7A32]/25 transition-all cursor-pointer"
+            className="w-full sm:w-auto px-7 sm:px-8 py-3.5 sm:py-4 rounded-full bg-[#FF7A32] hover:bg-[#FF8847] active:scale-95 text-black font-extrabold text-xs sm:text-sm uppercase tracking-wider flex items-center justify-center gap-2 sm:gap-2.5 shadow-xl shadow-[#FF7A32]/25 transition-colors cursor-pointer"
           >
             <span>Start Training</span>
             <ArrowRight className="w-4 h-4 stroke-[3]" />
@@ -118,54 +118,58 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
           <button
             onClick={onExploreClick}
-            className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 rounded-full bg-white/[0.04] hover:bg-white/[0.08] active:scale-95 border border-white/[0.12] text-white font-bold text-xs sm:text-sm tracking-wider flex items-center justify-center gap-2 transition-all cursor-pointer"
+            className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 rounded-full bg-white/[0.04] hover:bg-white/[0.08] active:scale-95 border border-white/[0.12] text-white font-bold text-xs sm:text-sm tracking-wider flex items-center justify-center gap-2 transition-colors cursor-pointer"
           >
             <span>Explore The System</span>
             <ChevronRight className="w-4 h-4 text-[#A3A3A3]" />
           </button>
         </div>
 
-        {/* Screen Switcher Chips for live interactive showcase */}
-        <div className="flex items-center gap-1.5 sm:gap-2 p-1 sm:p-1.5 bg-[#0C0C0E] border border-white/[0.08] rounded-2xl mb-3 sm:mb-6 overflow-x-auto max-w-full">
-          <span className="text-[10px] font-bold uppercase tracking-wider text-[#686868] px-2.5 hidden sm:inline">
-            Interactive Showcase:
-          </span>
-          {[
-            { id: 'home', label: 'Home' },
-            { id: 'workouts', label: 'Workouts' },
-            { id: 'active', label: 'Active Session' },
-            { id: 'brain', label: 'Forge Brain' },
-            { id: 'stats', label: 'Stats' },
-          ].map((item) => (
-            <button
-              key={item.id}
-              onClick={() => {
-                if (item.id === 'active') {
-                  setShowActiveSession(true);
-                } else {
-                  setShowActiveSession(false);
-                  setCenterTab(item.id as AppTab);
-                }
-              }}
-              className={`px-2.5 sm:px-3 py-1 sm:py-1.5 text-xs font-semibold rounded-xl transition-all cursor-pointer whitespace-nowrap ${
-                (item.id === 'active' && showActiveSession) ||
-                (!showActiveSession && centerTab === item.id)
-                  ? 'bg-[#FF7A32] text-black font-bold shadow-md shadow-[#FF7A32]/30'
-                  : 'text-[#A3A3A3] hover:text-white hover:bg-white/[0.05]'
-              }`}
-            >
-              {item.label}
-            </button>
-          ))}
+        {/* Segmented Screen Remote Switcher - quiet, restrained, accessible */}
+        <div
+          role="tablist"
+          aria-label="Product screens"
+          className="flex items-center gap-1 p-1 bg-[#0A0A0C] border border-white/[0.08] rounded-2xl mb-4 sm:mb-6 overflow-x-auto max-w-full relative shadow-inner"
+        >
+          {screens.map((item) => {
+            const isSelected = item.id === currentActiveId;
+            return (
+              <button
+                key={item.id}
+                role="tab"
+                aria-selected={isSelected}
+                onClick={() => {
+                  if (item.id === 'active') {
+                    setShowActiveSession(true);
+                  } else {
+                    setShowActiveSession(false);
+                    setCenterTab(item.id as AppTab);
+                  }
+                }}
+                className={`relative px-3 sm:px-3.5 py-1.5 text-xs font-semibold rounded-xl cursor-pointer whitespace-nowrap transition-colors duration-200 z-10 ${
+                  isSelected ? 'text-black font-bold' : 'text-[#8E8E93] hover:text-white'
+                }`}
+              >
+                {isSelected && (
+                  <motion.div
+                    layoutId="hero-segmented-active"
+                    transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                    className="absolute inset-0 bg-[#FF7A32] rounded-xl shadow-md shadow-[#FF7A32]/30 -z-10"
+                  />
+                )}
+                {item.label}
+              </button>
+            );
+          })}
         </div>
 
-        {/* 3D / Perspective Multi-Device Showcase */}
-        <div className="relative w-full max-w-5xl mx-auto flex items-center justify-center pt-2 sm:pt-4 pb-6 sm:pb-8">
-          {/* Radiant orange aura right behind the hardware - restrained & warm */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[580px] h-[350px] sm:h-[450px] rounded-full bg-[#FF7A32]/16 blur-[80px] pointer-events-none" />
+        {/* Multi-Device Physical Perspective Showcase */}
+        <div className="relative w-full max-w-5xl mx-auto flex items-center justify-center pt-2 sm:pt-4 pb-4">
+          {/* Subtle radiant orange rim aura behind the hardware */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[560px] h-[350px] sm:h-[420px] rounded-full bg-[#FF7A32]/14 blur-[80px] pointer-events-none" />
 
-          {/* Left Device: WORKOUTS (Partially rotated in perspective, visible on lg screens) */}
-          <div className="hidden lg:block absolute -left-12 top-10 transform -rotate-y-12 -rotate-6 scale-90 opacity-50 hover:opacity-85 hover:scale-95 transition-all duration-500 z-10 pointer-events-none sm:pointer-events-auto">
+          {/* Left Device: WORKOUTS (Visible on lg screens) */}
+          <div className="hidden lg:block absolute -left-12 top-10 transform -rotate-y-12 -rotate-6 scale-90 opacity-45 hover:opacity-75 transition-opacity duration-300 z-10 pointer-events-none">
             <div className="w-[320px] pointer-events-none select-none">
               <PhoneFrame glow={false} className="shadow-2xl">
                 <WorkoutsScreen onStartWorkout={() => setShowActiveSession(true)} />
@@ -174,61 +178,74 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             </div>
           </div>
 
-          {/* Center Device: MAIN HERO SCREEN (Physical hardware framing, fully interactive) */}
-          <div className="relative z-20 w-full max-w-[340px] xs:max-w-[360px] sm:max-w-[380px] transform hover:scale-[1.01] transition-transform duration-300">
+          {/* Center Device: MAIN HERO SCREEN (Stationary physical hardware frame, smooth screen crossfade inside) */}
+          <div className="relative z-20 w-full max-w-[340px] xs:max-w-[360px] sm:max-w-[380px]">
             <PhoneFrame glow={true} className="shadow-[0_25px_70px_rgba(0,0,0,0.95)]">
-              {showActiveSession ? (
-                <ActiveWorkoutScreen
-                  onBack={() => setShowActiveSession(false)}
-                  onFinish={() => {
-                    setShowActiveSession(false);
-                    setCenterTab('stats');
-                  }}
-                />
-              ) : centerTab === 'home' ? (
-                <>
-                  <HomeScreen
-                    onStartWorkout={() => setShowActiveSession(true)}
-                    onNavigateTab={(tab) => setCenterTab(tab)}
-                  />
-                  <LiquidNav
-                    activeTab="home"
-                    onTabChange={(tab) => setCenterTab(tab)}
-                  />
-                </>
-              ) : centerTab === 'workouts' ? (
-                <>
-                  <WorkoutsScreen
-                    onStartWorkout={() => setShowActiveSession(true)}
-                    onNavigateTab={(tab) => setCenterTab(tab)}
-                  />
-                  <LiquidNav
-                    activeTab="workouts"
-                    onTabChange={(tab) => setCenterTab(tab)}
-                  />
-                </>
-              ) : centerTab === 'brain' ? (
-                <>
-                  <BrainScreen onNavigateTab={(tab) => setCenterTab(tab)} />
-                  <LiquidNav
-                    activeTab="brain"
-                    onTabChange={(tab) => setCenterTab(tab)}
-                  />
-                </>
-              ) : (
-                <>
-                  <StatsScreen onNavigateTab={(tab) => setCenterTab(tab)} />
-                  <LiquidNav
-                    activeTab="stats"
-                    onTabChange={(tab) => setCenterTab(tab)}
-                  />
-                </>
-              )}
+              <div className="relative w-full h-full min-h-[580px] flex flex-col justify-between overflow-hidden">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={currentActiveId}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -8 }}
+                    transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
+                    className="w-full flex-1 flex flex-col"
+                  >
+                    {showActiveSession ? (
+                      <ActiveWorkoutScreen
+                        onBack={() => setShowActiveSession(false)}
+                        onFinish={() => {
+                          setShowActiveSession(false);
+                          setCenterTab('stats');
+                        }}
+                      />
+                    ) : centerTab === 'home' ? (
+                      <>
+                        <HomeScreen
+                          onStartWorkout={() => setShowActiveSession(true)}
+                          onNavigateTab={(tab) => setCenterTab(tab)}
+                        />
+                        <LiquidNav
+                          activeTab="home"
+                          onTabChange={(tab) => setCenterTab(tab)}
+                        />
+                      </>
+                    ) : centerTab === 'workouts' ? (
+                      <>
+                        <WorkoutsScreen
+                          onStartWorkout={() => setShowActiveSession(true)}
+                          onNavigateTab={(tab) => setCenterTab(tab)}
+                        />
+                        <LiquidNav
+                          activeTab="workouts"
+                          onTabChange={(tab) => setCenterTab(tab)}
+                        />
+                      </>
+                    ) : centerTab === 'brain' ? (
+                      <>
+                        <BrainScreen onNavigateTab={(tab) => setCenterTab(tab)} />
+                        <LiquidNav
+                          activeTab="brain"
+                          onTabChange={(tab) => setCenterTab(tab)}
+                        />
+                      </>
+                    ) : (
+                      <>
+                        <StatsScreen onNavigateTab={(tab) => setCenterTab(tab)} />
+                        <LiquidNav
+                          activeTab="stats"
+                          onTabChange={(tab) => setCenterTab(tab)}
+                        />
+                      </>
+                    )}
+                  </motion.div>
+                </AnimatePresence>
+              </div>
             </PhoneFrame>
           </div>
 
-          {/* Right Device: STATS (Partially rotated in perspective, visible on lg screens) */}
-          <div className="hidden lg:block absolute -right-12 top-10 transform rotate-y-12 rotate-6 scale-90 opacity-60 hover:opacity-90 hover:scale-95 transition-all duration-500 z-10 pointer-events-none sm:pointer-events-auto">
+          {/* Right Device: STATS (Visible on lg screens) */}
+          <div className="hidden lg:block absolute -right-12 top-10 transform rotate-y-12 rotate-6 scale-90 opacity-45 hover:opacity-75 transition-opacity duration-300 z-10 pointer-events-none">
             <div className="w-[320px] pointer-events-none select-none">
               <PhoneFrame glow={false} className="shadow-2xl">
                 <StatsScreen />
@@ -237,12 +254,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             </div>
           </div>
         </div>
-
-        {/* Micro subtext under showcase */}
-        <p className="text-xs text-[#686868] mt-2 flex items-center justify-center gap-2">
-          <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#FF7A32]" />
-          <span>Real interactive components. Try toggling sets or switching tabs above.</span>
-        </p>
       </div>
     </section>
   );

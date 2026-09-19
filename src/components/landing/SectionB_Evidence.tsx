@@ -25,11 +25,11 @@ export const SectionB_Evidence: React.FC = () => {
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] mb-4">
             <span className="w-1.5 h-1.5 rounded-full bg-[#FF7A32]" />
             <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#A3A3A3]">
-              Section 02 // Objective Evidence
+              Progress Evidence
             </span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white uppercase tracking-tight leading-[1.08] mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white uppercase tracking-tight leading-[1.08] mb-4">
             Progress you can{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF7A32] to-[#FF9457]">
               prove.
@@ -52,7 +52,7 @@ export const SectionB_Evidence: React.FC = () => {
                   <div className="text-[10px] font-bold text-[#8E8E93] uppercase tracking-wider">
                     Total Mesocycle Volume
                   </div>
-                  <div className="text-3xl font-black text-white tracking-tight mt-1 flex items-baseline gap-2">
+                  <div className="text-3xl font-extrabold text-white tracking-tight mt-1 flex items-baseline gap-2">
                     <span>24,320 kg</span>
                     <span className="text-xs font-bold text-emerald-400 flex items-center gap-1">
                       <TrendingUp className="w-3.5 h-3.5" />
@@ -67,7 +67,7 @@ export const SectionB_Evidence: React.FC = () => {
                     <button
                       key={filter}
                       onClick={() => setActiveFilter(filter)}
-                      className={`px-3 py-1 text-xs font-semibold rounded-lg transition-all cursor-pointer ${
+                      className={`px-3 py-1 text-xs font-semibold rounded-lg transition-colors cursor-pointer ${
                         activeFilter === filter
                           ? 'bg-white text-black shadow-sm font-bold'
                           : 'text-[#8E8E93] hover:text-white'
@@ -114,15 +114,15 @@ export const SectionB_Evidence: React.FC = () => {
             {/* Bottom summary metrics row */}
             <div className="grid grid-cols-3 gap-3 pt-6 mt-2">
               <div className="p-3 rounded-2xl bg-black/40 border border-white/[0.05]">
-                <div className="text-lg font-black text-white">12</div>
+                <div className="text-lg font-extrabold text-white">12</div>
                 <div className="text-[11px] text-[#8E8E93]">Workouts completed</div>
               </div>
               <div className="p-3 rounded-2xl bg-black/40 border border-white/[0.05]">
-                <div className="text-lg font-black text-emerald-400">+6.8%</div>
+                <div className="text-lg font-extrabold text-emerald-400">+6.8%</div>
                 <div className="text-[11px] text-[#8E8E93]">Strength trend velocity</div>
               </div>
               <div className="p-3 rounded-2xl bg-black/40 border border-white/[0.05]">
-                <div className="text-lg font-black text-[#FF7A32]">5 PRs</div>
+                <div className="text-lg font-extrabold text-[#FF7A32]">5 PRs</div>
                 <div className="text-[11px] text-[#8E8E93]">Personal records logged</div>
               </div>
             </div>

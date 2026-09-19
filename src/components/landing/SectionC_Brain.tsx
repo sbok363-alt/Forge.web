@@ -44,11 +44,11 @@ export const SectionC_Brain: React.FC = () => {
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1C1714] border border-[#FF7A32]/40 mb-4">
             <Brain className="w-3.5 h-3.5 text-[#FF7A32]" />
             <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#FF7A32]">
-              Section 03 // Forge Brain Intelligence
+              Training Intelligence
             </span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white uppercase tracking-tight leading-[1.08] mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white uppercase tracking-tight leading-[1.08] mb-4">
             Your training{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF7A32] via-[#FF9457] to-[#FFA875]">
               intelligence.

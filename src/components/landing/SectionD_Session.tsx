@@ -16,11 +16,11 @@ export const SectionD_Session: React.FC = () => {
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08]">
               <span className="w-1.5 h-1.5 rounded-full bg-[#FF7A32]" />
               <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#A3A3A3]">
-                Section 04 // Gym Floor Optimization
+                Gym Floor Execution
               </span>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white uppercase tracking-tight leading-[1.08]">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white uppercase tracking-tight leading-[1.08]">
               Built for the{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF7A32] to-[#FF9457]">
                 session.
@@ -69,9 +69,9 @@ export const SectionD_Session: React.FC = () => {
               <div className="flex items-center justify-between pb-4 border-b border-white/[0.08] mb-6">
                 <div>
                   <div className="text-[10px] font-mono uppercase tracking-wider text-[#FF7A32] font-bold">
-                    Tactile Rapid Input Simulator
+                    Tactile Rapid Input
                   </div>
-                  <h3 className="text-lg font-black text-white">Barbell Bench Press — Set #4</h3>
+                  <h3 className="text-lg font-extrabold text-white">Barbell Bench Press — Set #4</h3>
                 </div>
                 <div className="px-3 py-1 rounded-full bg-white/[0.06] border border-white/[0.1] text-xs font-mono text-white/90">
                   Target: 8 Reps @ RIR 1
@@ -85,19 +85,19 @@ export const SectionD_Session: React.FC = () => {
                   <span className="text-[10px] uppercase font-bold text-[#8E8E93] mb-2 tracking-wider">
                     Weight (kg)
                   </span>
-                  <div className="text-3xl font-mono font-black text-white mb-3">
+                  <div className="text-3xl font-mono font-extrabold text-white mb-3">
                     {testWeight}
                   </div>
                   <div className="flex items-center gap-2 w-full">
                     <button
                       onClick={() => setTestWeight((w) => Math.max(0, w - 2.5))}
-                      className="flex-1 py-2 rounded-xl bg-white/[0.08] hover:bg-white/[0.15] text-white flex items-center justify-center font-bold cursor-pointer"
+                      className="flex-1 py-2 rounded-xl bg-white/[0.08] hover:bg-white/[0.15] text-white flex items-center justify-center font-bold transition-colors cursor-pointer"
                     >
                       <Minus className="w-4 h-4" />
                     </button>
                     <button
                       onClick={() => setTestWeight((w) => w + 2.5)}
-                      className="flex-1 py-2 rounded-xl bg-white/[0.08] hover:bg-white/[0.15] text-white flex items-center justify-center font-bold cursor-pointer"
+                      className="flex-1 py-2 rounded-xl bg-white/[0.08] hover:bg-white/[0.15] text-white flex items-center justify-center font-bold transition-colors cursor-pointer"
                     >
                       <Plus className="w-4 h-4" />
                     </button>
@@ -109,19 +109,19 @@ export const SectionD_Session: React.FC = () => {
                   <span className="text-[10px] uppercase font-bold text-[#8E8E93] mb-2 tracking-wider">
                     Reps Logged
                   </span>
-                  <div className="text-3xl font-mono font-black text-white mb-3">
+                  <div className="text-3xl font-mono font-extrabold text-white mb-3">
                     {testReps}
                   </div>
                   <div className="flex items-center gap-2 w-full">
                     <button
                       onClick={() => setTestReps((r) => Math.max(1, r - 1))}
-                      className="flex-1 py-2 rounded-xl bg-white/[0.08] hover:bg-white/[0.15] text-white flex items-center justify-center font-bold cursor-pointer"
+                      className="flex-1 py-2 rounded-xl bg-white/[0.08] hover:bg-white/[0.15] text-white flex items-center justify-center font-bold transition-colors cursor-pointer"
                     >
                       <Minus className="w-4 h-4" />
                     </button>
                     <button
                       onClick={() => setTestReps((r) => r + 1)}
-                      className="flex-1 py-2 rounded-xl bg-white/[0.08] hover:bg-white/[0.15] text-white flex items-center justify-center font-bold cursor-pointer"
+                      className="flex-1 py-2 rounded-xl bg-white/[0.08] hover:bg-white/[0.15] text-white flex items-center justify-center font-bold transition-colors cursor-pointer"
                     >
                       <Plus className="w-4 h-4" />
                     </button>
@@ -133,19 +133,19 @@ export const SectionD_Session: React.FC = () => {
                   <span className="text-[10px] uppercase font-bold text-[#8E8E93] mb-2 tracking-wider">
                     Reps in Reserve
                   </span>
-                  <div className="text-3xl font-mono font-black text-[#FF7A32] mb-3">
+                  <div className="text-3xl font-mono font-extrabold text-[#FF7A32] mb-3">
                     {testRir}
                   </div>
                   <div className="flex items-center gap-2 w-full">
                     <button
                       onClick={() => setTestRir((rir) => Math.max(0, rir - 1))}
-                      className="flex-1 py-2 rounded-xl bg-white/[0.08] hover:bg-white/[0.15] text-white flex items-center justify-center font-bold cursor-pointer"
+                      className="flex-1 py-2 rounded-xl bg-white/[0.08] hover:bg-white/[0.15] text-white flex items-center justify-center font-bold transition-colors cursor-pointer"
                     >
                       <Minus className="w-4 h-4" />
                     </button>
                     <button
                       onClick={() => setTestRir((rir) => Math.min(5, rir + 1))}
-                      className="flex-1 py-2 rounded-xl bg-white/[0.08] hover:bg-white/[0.15] text-white flex items-center justify-center font-bold cursor-pointer"
+                      className="flex-1 py-2 rounded-xl bg-white/[0.08] hover:bg-white/[0.15] text-white flex items-center justify-center font-bold transition-colors cursor-pointer"
                     >
                       <Plus className="w-4 h-4" />
                     </button>
@@ -156,7 +156,7 @@ export const SectionD_Session: React.FC = () => {
               {/* Big Action Button */}
               <button
                 onClick={() => setIsDone(!isDone)}
-                className={`w-full py-4 rounded-2xl font-black text-sm uppercase tracking-widest flex items-center justify-center gap-2.5 transition-all shadow-xl cursor-pointer ${
+                className={`w-full py-4 rounded-2xl font-extrabold text-sm uppercase tracking-widest flex items-center justify-center gap-2.5 transition-colors shadow-xl cursor-pointer ${
                   isDone
                     ? 'bg-emerald-500 text-black shadow-emerald-500/30'
                     : 'bg-[#FF7A32] hover:bg-[#FF8847] active:scale-[0.98] text-black shadow-[#FF7A32]/40'

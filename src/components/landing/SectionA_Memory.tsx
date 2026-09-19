@@ -57,11 +57,11 @@ export const SectionA_Memory: React.FC = () => {
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08]">
               <span className="w-1.5 h-1.5 rounded-full bg-[#FF7A32]" />
               <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#A3A3A3]">
-                Section 01 // Structured Logging
+                Structured Logging
               </span>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white uppercase tracking-tight leading-[1.08]">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white uppercase tracking-tight leading-[1.08]">
               Your training
               <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF7A32] to-[#FF9457]">
@@ -117,9 +117,9 @@ export const SectionA_Memory: React.FC = () => {
                     <span className="text-xs font-bold text-[#FF7A32] uppercase tracking-wider">
                       Live Workout Session
                     </span>
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
                   </div>
-                  <h3 className="text-xl font-black text-white tracking-tight">
+                  <h3 className="text-xl font-extrabold text-white tracking-tight">
                     1. Barbell Bench Press
                   </h3>
                   <p className="text-xs text-[#8E8E93]">Chest • Triceps • Front Delts</p>
@@ -127,7 +127,7 @@ export const SectionA_Memory: React.FC = () => {
 
                 <div className="text-right">
                   <div className="text-xs font-mono text-[#8E8E93]">Total Volume</div>
-                  <div className="text-lg font-black font-mono text-emerald-400">
+                  <div className="text-lg font-extrabold font-mono text-emerald-400">
                     {completedVolume.toLocaleString()} kg
                   </div>
                 </div>
