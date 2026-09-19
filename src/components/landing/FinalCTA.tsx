@@ -39,9 +39,9 @@ export const FinalCTA: React.FC<FinalCTAProps> = ({
         {/* CTAs (Clean semantic links without duplicate window.open triggers) */}
         <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 w-full justify-center max-w-md">
           <a
-            href={FORGE_APP_CONFIG.startTrainingUrl}
-            target="_blank"
-            rel="noopener noreferrer"
+            href={FORGE_APP_CONFIG.startTrainingUrl || '#'}
+            target={FORGE_APP_CONFIG.startTrainingUrl ? '_blank' : undefined}
+            rel={FORGE_APP_CONFIG.startTrainingUrl ? 'noopener noreferrer' : undefined}
             className="w-full sm:w-auto px-7 sm:px-8 py-3.5 sm:py-4 rounded-full bg-[#FF7A32] hover:bg-[#FF8847] active:scale-95 text-black font-extrabold text-xs sm:text-sm uppercase tracking-wider flex items-center justify-center gap-2.5 shadow-xl shadow-[#FF7A32]/25 transition-colors cursor-pointer"
           >
             <span>Start Training</span>
@@ -49,9 +49,9 @@ export const FinalCTA: React.FC<FinalCTAProps> = ({
           </a>
 
           <a
-            href={FORGE_APP_CONFIG.signInUrl}
-            target="_blank"
-            rel="noopener noreferrer"
+            href={FORGE_APP_CONFIG.signInUrl || '#'}
+            target={FORGE_APP_CONFIG.signInUrl ? '_blank' : undefined}
+            rel={FORGE_APP_CONFIG.signInUrl ? 'noopener noreferrer' : undefined}
             onClick={(e) => {
               if (onSignIn) {
                 e.preventDefault();

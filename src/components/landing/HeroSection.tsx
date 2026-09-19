@@ -107,9 +107,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         <div className="flex flex-col sm:flex-row items-center gap-2.5 sm:gap-4 mb-5 sm:mb-8 w-full sm:w-auto px-2 sm:px-0">
           <a
             id="hero-primary-cta"
-            href={FORGE_APP_CONFIG.startTrainingUrl}
-            target="_blank"
-            rel="noopener noreferrer"
+            href={FORGE_APP_CONFIG.startTrainingUrl || '#'}
+            target={FORGE_APP_CONFIG.startTrainingUrl ? '_blank' : undefined}
+            rel={FORGE_APP_CONFIG.startTrainingUrl ? 'noopener noreferrer' : undefined}
             className="w-full sm:w-auto px-7 sm:px-8 py-3.5 sm:py-4 rounded-full bg-[#FF7A32] hover:bg-[#FF8847] active:scale-95 text-black font-extrabold text-xs sm:text-sm uppercase tracking-wider flex items-center justify-center gap-2 sm:gap-2.5 shadow-xl shadow-[#FF7A32]/25 transition-colors cursor-pointer"
           >
             <span>Start Training</span>

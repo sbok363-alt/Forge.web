@@ -105,9 +105,9 @@ export const LandingNav: React.FC<LandingNavProps> = ({
         <div className="hidden sm:flex items-center gap-3">
           <a
             id="nav-signin-link"
-            href={FORGE_APP_CONFIG.signInUrl}
-            target="_blank"
-            rel="noopener noreferrer"
+            href={FORGE_APP_CONFIG.signInUrl || '#'}
+            target={FORGE_APP_CONFIG.signInUrl ? '_blank' : undefined}
+            rel={FORGE_APP_CONFIG.signInUrl ? 'noopener noreferrer' : undefined}
             className="px-4 py-2 text-xs font-semibold text-[#A3A3A3] hover:text-white transition-colors cursor-pointer"
           >
             Sign In
@@ -115,9 +115,9 @@ export const LandingNav: React.FC<LandingNavProps> = ({
 
           <a
             id="nav-start-training-btn"
-            href={FORGE_APP_CONFIG.startTrainingUrl}
-            target="_blank"
-            rel="noopener noreferrer"
+            href={FORGE_APP_CONFIG.startTrainingUrl || '#'}
+            target={FORGE_APP_CONFIG.startTrainingUrl ? '_blank' : undefined}
+            rel={FORGE_APP_CONFIG.startTrainingUrl ? 'noopener noreferrer' : undefined}
             className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#FF7A32] text-black font-extrabold text-xs uppercase tracking-wider hover:bg-[#FF8847] active:scale-95 shadow-md shadow-[#FF7A32]/25 transition-colors cursor-pointer"
           >
             <span>Start Training</span>
@@ -128,9 +128,9 @@ export const LandingNav: React.FC<LandingNavProps> = ({
         {/* Mobile menu trigger */}
         <div className="flex sm:hidden items-center gap-2">
           <a
-            href={FORGE_APP_CONFIG.startTrainingUrl}
-            target="_blank"
-            rel="noopener noreferrer"
+            href={FORGE_APP_CONFIG.startTrainingUrl || '#'}
+            target={FORGE_APP_CONFIG.startTrainingUrl ? '_blank' : undefined}
+            rel={FORGE_APP_CONFIG.startTrainingUrl ? 'noopener noreferrer' : undefined}
             className="px-3.5 py-1.5 rounded-full bg-[#FF7A32] text-black font-extrabold text-[11px] uppercase tracking-wider shadow-sm shadow-[#FF7A32]/20"
           >
             Start Training
@@ -192,9 +192,9 @@ export const LandingNav: React.FC<LandingNavProps> = ({
 
               <div className="pt-4 mt-3 border-t border-white/[0.08] flex flex-col gap-2.5">
                 <a
-                  href={FORGE_APP_CONFIG.signInUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href={FORGE_APP_CONFIG.signInUrl || '#'}
+                  target={FORGE_APP_CONFIG.signInUrl ? '_blank' : undefined}
+                  rel={FORGE_APP_CONFIG.signInUrl ? 'noopener noreferrer' : undefined}
                   onClick={() => setMobileMenuOpen(false)}
                   className="w-full py-2.5 rounded-xl border border-white/10 text-xs font-bold text-white text-center flex items-center justify-center gap-1.5 hover:bg-white/[0.05] transition-colors"
                 >
@@ -202,9 +202,9 @@ export const LandingNav: React.FC<LandingNavProps> = ({
                   <ExternalLink className="w-3 h-3 text-[#A3A3A3]" />
                 </a>
                 <a
-                  href={FORGE_APP_CONFIG.startTrainingUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href={FORGE_APP_CONFIG.startTrainingUrl || '#'}
+                  target={FORGE_APP_CONFIG.startTrainingUrl ? '_blank' : undefined}
+                  rel={FORGE_APP_CONFIG.startTrainingUrl ? 'noopener noreferrer' : undefined}
                   onClick={() => setMobileMenuOpen(false)}
                   className="w-full py-3 rounded-xl bg-[#FF7A32] hover:bg-[#FF8847] text-black font-extrabold text-xs uppercase tracking-wider text-center flex items-center justify-center gap-1.5 shadow-md shadow-[#FF7A32]/25 transition-colors"
                 >

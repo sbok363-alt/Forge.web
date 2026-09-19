@@ -18,7 +18,7 @@ export const SectionC_Brain: React.FC = () => {
       query: 'Why did my overhead press stall on week 3?',
       evidence: 'Overhead Press load has remained at 50 kg for 3 weeks; previous day chest volume was 18 sets.',
       recommendation:
-        "Your triceps and front delts are fatigued from high push-day chest volume 24 hours prior. Shift Overhead Press to upper day after a dedicated rest day.",
+        "Previous-day push volume may be contributing to accumulated fatigue in your triceps and front delts. Consider shifting Overhead Press to an upper day following a dedicated rest day.",
       action: 'Reschedule OHP to Friday Upper Day',
     },
     {
@@ -26,7 +26,7 @@ export const SectionC_Brain: React.FC = () => {
       query: 'Am I accumulating excessive systemic fatigue?',
       evidence: 'Average RIR dropped from 2.2 to 0.6 across compound sets over the last 4 sessions as perceived exertion rose.',
       recommendation:
-        "Consecutive sessions show declining RIR and elevated fatigue accumulation. Proposing a planned volume reduction on secondary movements for your next training block.",
+        "Logged sets show declining RIR alongside rising perceived exertion across recent sessions. A planned volume reduction on secondary movements may help manage accumulated fatigue.",
       action: 'Apply Deload Microcycle',
     },
   ];

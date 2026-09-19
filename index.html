@@ -13,32 +13,20 @@
     <meta property="og:site_name" content="FORGE" />
     <meta property="og:title" content="FORGE - Evidence-Based Training &amp; Intelligence" />
     <meta property="og:description" content="Train with evidence. Progress with intent. FORGE connects workout logging, progressive overload, and intelligent training analytics into one unified system." />
-    <meta property="og:image" content="/og-image.svg" />
+    <meta property="og:image" content="/og-image.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:type" content="image/svg+xml" />
+    <meta property="og:image:type" content="image/png" />
     <meta property="og:image:alt" content="FORGE - Evidence-Based Training &amp; Intelligence" />
-    <meta property="og:url" id="og-url" content="" />
     
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="FORGE - Evidence-Based Training &amp; Intelligence" />
     <meta name="twitter:description" content="Train with evidence. Progress with intent. FORGE connects workout logging, progressive overload, and intelligent training analytics into one unified system." />
-    <meta name="twitter:image" content="/og-image.svg" />
+    <meta name="twitter:image" content="/og-image.png" />
     
-    <!-- Dynamic Canonical URL without inventing a production domain -->
-    <link rel="canonical" id="canonical-url" href="" />
-    <script>
-      (function() {
-        try {
-          var canonicalUrl = window.location.origin + window.location.pathname;
-          var link = document.getElementById('canonical-url');
-          if (link) link.setAttribute('href', canonicalUrl);
-          var ogUrl = document.getElementById('og-url');
-          if (ogUrl) ogUrl.setAttribute('content', canonicalUrl);
-        } catch (e) {}
-      })();
-    </script>
+    <!-- Build-time canonical and og:url (populated when VITE_FORGE_SITE_URL is configured) -->
+    <!-- VITE_SEO_CANONICAL -->
 
     <!-- Schema.org JSON-LD Structured Data -->
     <script type="application/ld+json">
@@ -48,12 +36,7 @@
       "name": "FORGE",
       "applicationCategory": "HealthAndFitnessApplication",
       "operatingSystem": "All",
-      "description": "Train with evidence. Progress with intent. FORGE connects workout logging, progressive overload, and intelligent training analytics into one unified system.",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      }
+      "description": "Train with evidence. Progress with intent. FORGE connects workout logging, progressive overload, and intelligent training analytics into one unified system."
     }
     </script>
     

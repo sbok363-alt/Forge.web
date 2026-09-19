@@ -74,9 +74,9 @@ export const LandingFooter: React.FC<LandingFooterProps> = ({
               <ul className="space-y-1.5 text-[11px]">
                 <li>
                   <a
-                    href={FORGE_APP_CONFIG.appUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href={FORGE_APP_CONFIG.appUrl || '#'}
+                    target={FORGE_APP_CONFIG.appUrl ? '_blank' : undefined}
+                    rel={FORGE_APP_CONFIG.appUrl ? 'noopener noreferrer' : undefined}
                     className="hover:text-white transition-colors cursor-pointer inline-flex items-center gap-1"
                   >
                     <span>FORGE Web App</span>
@@ -85,9 +85,9 @@ export const LandingFooter: React.FC<LandingFooterProps> = ({
                 </li>
                 <li>
                   <a
-                    href={FORGE_APP_CONFIG.signInUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href={FORGE_APP_CONFIG.signInUrl || '#'}
+                    target={FORGE_APP_CONFIG.signInUrl ? '_blank' : undefined}
+                    rel={FORGE_APP_CONFIG.signInUrl ? 'noopener noreferrer' : undefined}
                     className="hover:text-white transition-colors cursor-pointer inline-flex items-center gap-1"
                   >
                     <span>Athlete Portal</span>
@@ -96,9 +96,9 @@ export const LandingFooter: React.FC<LandingFooterProps> = ({
                 </li>
                 <li>
                   <a
-                    href={FORGE_APP_CONFIG.startTrainingUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href={FORGE_APP_CONFIG.startTrainingUrl || '#'}
+                    target={FORGE_APP_CONFIG.startTrainingUrl ? '_blank' : undefined}
+                    rel={FORGE_APP_CONFIG.startTrainingUrl ? 'noopener noreferrer' : undefined}
                     className="text-[#FF7A32] hover:text-[#FF8847] transition-colors cursor-pointer"
                   >
                     Start Training

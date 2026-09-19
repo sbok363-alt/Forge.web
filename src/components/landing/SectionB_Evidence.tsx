@@ -37,7 +37,7 @@ export const SectionB_Evidence: React.FC = () => {
           </h2>
 
           <p className="text-base sm:text-lg text-[#A3A3A3] leading-relaxed">
-            No vanity scores or arbitrary gamification. FORGE isolates the metrics that directly reflect strength and hypertrophy progress: progressive volume, estimated 1RM trajectory, and set consistency.
+            No vanity scores or arbitrary gamification. FORGE isolates core progressive training metrics: progressive volume, estimated 1RM trajectory, and set consistency.
           </p>
         </div>
 
@@ -178,7 +178,7 @@ export const SectionB_Evidence: React.FC = () => {
 
             <div className="p-3.5 rounded-2xl bg-black/50 border border-white/[0.06] text-xs text-[#8E8E93] flex items-center justify-between">
               <span>Balanced Push-to-Pull volume ratio</span>
-              <span className="font-mono font-bold text-emerald-400">1 : 1.15 (Optimal)</span>
+              <span className="font-mono font-bold text-emerald-400">1 : 1.15</span>
             </div>
           </div>
         </div>

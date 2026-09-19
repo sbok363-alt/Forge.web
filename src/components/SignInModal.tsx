@@ -100,9 +100,9 @@ export const SignInModal: React.FC<SignInModalProps> = ({
         <div className="space-y-3 pt-2">
           <a
             ref={primaryBtnRef}
-            href={FORGE_APP_CONFIG.signInUrl}
-            target="_blank"
-            rel="noopener noreferrer"
+            href={FORGE_APP_CONFIG.signInUrl || '#'}
+            target={FORGE_APP_CONFIG.signInUrl ? '_blank' : undefined}
+            rel={FORGE_APP_CONFIG.signInUrl ? 'noopener noreferrer' : undefined}
             onClick={onClose}
             className="w-full py-3.5 rounded-full bg-[#FF7A32] hover:bg-[#FF8847] active:scale-[0.98] text-black font-extrabold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg shadow-[#FF7A32]/25 transition-colors cursor-pointer"
           >

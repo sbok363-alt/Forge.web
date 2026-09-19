@@ -37,7 +37,7 @@ export const BrainScreen: React.FC<BrainScreenProps> = ({
       const lower = text.toLowerCase();
       if (lower.includes('stall') || lower.includes('bench')) {
         brainReplyText =
-          "Bench Press shows steady progress. You completed 60 kg x 10, 9, 8 today with an average RIR of 1.7. Since last week's chest volume reached 3,600 kg, this reflects normal session fatigue rather than a plateau. Maintain current loads for 1 more session to solidify technique before adding weight.";
+          "Bench Press shows steady progress. You completed 60 kg x 10, 9, 8 today with an average RIR of 1.7. Since last week's chest volume reached 3,600 kg, accumulated session fatigue may be contributing rather than a plateau. Maintain current loads for 1 more session to solidify technique before adding weight.";
         actionChips = ['Review bench press history', 'Review chest volume history'];
       } else if (lower.includes('review') || lower.includes('last workout')) {
         brainReplyText =
@@ -45,7 +45,7 @@ export const BrainScreen: React.FC<BrainScreenProps> = ({
         actionChips = ['Compare with previous week', 'Review set logs'];
       } else if (lower.includes('adjust') || lower.includes('today')) {
         brainReplyText =
-          "Based on your 4-week fatigue accumulation, I recommend keeping main compound movements at RIR 2, then reducing secondary isolation volume by 1 set if perceived exertion exceeds 8/10.";
+          "Based on logged volume trends across the past 4 weeks, consider keeping main compound movements at RIR 2, with an optional 1-set reduction on secondary isolation if perceived exertion is high.";
         actionChips = ['Apply session adjustment', 'Keep standard plan'];
       } else {
         brainReplyText =

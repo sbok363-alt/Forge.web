@@ -174,9 +174,9 @@ export const SectionE_OneSystem: React.FC<SectionE_OneSystemProps> = () => {
 
               <div className="pt-4 flex items-center gap-3">
                 <a
-                  href={`${FORGE_APP_CONFIG.appUrl}/${current.id}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href={FORGE_APP_CONFIG.appUrl ? `${FORGE_APP_CONFIG.appUrl}/${current.id}` : '#section-system'}
+                  target={FORGE_APP_CONFIG.appUrl ? '_blank' : undefined}
+                  rel={FORGE_APP_CONFIG.appUrl ? 'noopener noreferrer' : undefined}
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#FF7A32] hover:bg-[#FF8847] text-black font-extrabold text-xs uppercase tracking-wider transition-colors shadow-md shadow-[#FF7A32]/20 cursor-pointer"
                 >
                   <span>Open in FORGE</span>
